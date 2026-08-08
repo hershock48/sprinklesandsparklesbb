@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-display: "Didot", "Bodoni MT", "Playfair Display", Georgia, "Times New Roman", serif;
+
+  --holo: linear-gradient(
+    100deg,
+    #ff9ad5 0%,
+    #ffb3e6 12%,
+    #b9a3ff 30%,
+    #7fe6f0 50%,
+    #9df7c8 68%,
+    #ffd98e 84%,
+    #ff9ad5 100%
+  );
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0a0710;
+  color: #f6f2fb;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #ff9ad5;
+  color: #12101a;
+}
+
+/* ---------- holographic primitives ---------- */
+
+.holo-text {
+  background: var(--holo);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: holo-drift 9s linear infinite;
+}
+
+.holo-rule {
+  height: 2px;
+  border: 0;
+  background: var(--holo);
+  background-size: 260% 100%;
+  animation: holo-drift 9s linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes holo-drift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 260% 50%;
+  }
+}
+
+/* iridescent hairline border via gradient mask */
+.holo-edge {
+  position: relative;
+  isolation: isolate;
+}
+.holo-edge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--holo);
+  background-size: 260% 100%;
+  animation: holo-drift 12s linear infinite;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0.55;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+.holo-edge:hover::before {
+  opacity: 1;
+}
+
+/* light sweep across a card or image on hover */
+.sheen {
+  position: relative;
+  overflow: hidden;
+}
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.22) 44%,
+    rgba(185, 163, 255, 0.28) 50%,
+    rgba(127, 230, 240, 0.24) 56%,
+    transparent 72%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 3;
+}
+.sheen:hover::after {
+  transform: translateX(120%);
+}
+
+/* soft aurora field for section backgrounds */
+.aurora {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(48% 46% at 14% 26%, rgba(255, 154, 213, 0.3), transparent 70%),
+    radial-gradient(42% 42% at 82% 18%, rgba(127, 230, 240, 0.24), transparent 70%),
+    radial-gradient(46% 44% at 62% 78%, rgba(185, 163, 255, 0.28), transparent 70%),
+    radial-gradient(38% 38% at 26% 82%, rgba(157, 247, 200, 0.16), transparent 70%);
+  filter: blur(14px);
+  animation: aurora-float 22s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-float {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(0, -3%, 0) scale(1.08);
+  }
+}
+
+/* fine sugar grain so the flat areas are not dead */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.55) 0.5px, transparent 0.6px);
+  background-size: 4px 4px;
+  mix-blend-mode: overlay;
+}
+
+/* diffraction stripes, a nod to the dessert sheets */
+.diffract {
+  background-image: repeating-linear-gradient(
+    102deg,
+    rgba(255, 154, 213, 0.5) 0px,
+    rgba(185, 163, 255, 0.5) 6px,
+    rgba(127, 230, 240, 0.5) 12px,
+    rgba(157, 247, 200, 0.5) 18px,
+    rgba(255, 217, 142, 0.5) 24px,
+    rgba(255, 154, 213, 0.5) 30px
+  );
+}
+
+.btn-holo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #16101f;
+  background: var(--holo);
+  background-size: 260% 100%;
+  animation: holo-drift 9s linear infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 30px -12px rgba(255, 154, 213, 0.8);
+}
+.btn-holo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px -12px rgba(185, 163, 255, 0.9);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  color: #f6f2fb;
+  border: 1px solid rgba(185, 163, 255, 0.45);
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(255, 154, 213, 0.9);
+  background: rgba(255, 154, 213, 0.08);
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b3a6c9;
+}
+
+.lift {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.lift:hover {
+  transform: translateY(-6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
