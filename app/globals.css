@@ -23,6 +23,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* keep anchored headings clear of the fixed nav */
+section[id] {
+  scroll-margin-top: 104px;
+}
+
 body {
   background: #0a0710;
   color: #f6f2fb;

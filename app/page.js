@@ -36,7 +36,9 @@ export default function Home() {
 
           <div className="mx-auto grid w-full max-w-page gap-14 px-6 py-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div>
-              <p className="eyebrow mb-6">Marshall, Michigan &nbsp;&middot;&nbsp; Since 2010</p>
+              <p className="eyebrow mb-6">
+                Marshall, Michigan &nbsp;&middot;&nbsp; Fifteen years of holographic desserts
+              </p>
               <h1 className="font-display text-[clamp(44px,7.5vw,88px)] font-normal leading-[0.98] tracking-[-0.03em]">
                 Desserts that
                 <br />
