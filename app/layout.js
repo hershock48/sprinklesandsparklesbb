@@ -1,5 +1,19 @@
 import './globals.css';
-import { site } from '@/lib/data';
+import { Fredoka, Nunito } from 'next/font/google';
+
+const display = Fredoka({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+const sans = Nunito({
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '800'],
+  variable: '--font-sans',
+  display: 'swap',
+});
 
 export const metadata = {
   title: 'Sprinkles & Sparkles BB | Holographic desserts, tutorials and sanding sugars',
@@ -15,12 +29,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <body>{children}</body>
     </html>
   );
 }
 
 export const viewport = {
-  themeColor: '#0a0710',
+  themeColor: '#FFFCF7',
 };

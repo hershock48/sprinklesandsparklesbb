@@ -4,25 +4,37 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: '#0a0710',
-        panel: '#140f1d',
-        panel2: '#1c1527',
-        line: '#2e2440',
-        cream: '#fdf7f2',
-        sugar: '#f7ecf6',
-        muted: '#b3a6c9',
-        pink: '#ff9ad5',
-        lav: '#b9a3ff',
-        cyan: '#7fe6f0',
-        mint: '#9df7c8',
-        gold: '#ffd98e',
+        // light, bakery-counter base
+        frosting: '#FFFCF7',
+        vanilla: '#FFF6EA',
+        batter: '#FFEDD6',
+        shell: '#FFFFFF',
+        ink: '#2E2340',
+        muted: '#7C6C8C',
+        line: '#F0E3D6',
+
+        // the sprinkle jar
+        pink: '#FF4E9B',
+        bubble: '#FF8FC0',
+        tangerine: '#FF8A3D',
+        lemon: '#FFC93C',
+        lime: '#5FCB53',
+        aqua: '#2DC7DE',
+        grape: '#8B6BFF',
       },
       fontFamily: {
-        display: ['var(--font-display)', 'Georgia', 'serif'],
+        display: ['var(--font-display)', 'Trebuchet MS', 'sans-serif'],
         sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       maxWidth: {
-        page: '1200px',
+        page: '1180px',
+      },
+      boxShadow: {
+        candy: '0 18px 40px -22px rgba(46, 35, 64, 0.35)',
+        pop: '0 26px 60px -28px rgba(255, 78, 155, 0.55)',
+      },
+      borderRadius: {
+        blob: '32px',
       },
     },
   },
