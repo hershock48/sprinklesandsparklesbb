@@ -146,7 +146,14 @@ body {
   border-radius: 999px;
   opacity: 0.85;
   pointer-events: none;
-  animation: sprinkle-bob 7s ease-in-out infinite alternate;
+  /* Duration comes from the element, per piece, and that is the whole trick.
+     Every sprinkle used to share one 7s cycle with delays spanning only 2.4s of
+     it, so all of them bobbed in near-unison and the field read as static:
+     motion is only perceptible relative to something not doing the same thing.
+     Now each piece has its own duration and a negative delay dropping it
+     somewhere else in its cycle, so they are permanently out of phase. No
+     individual sprinkle moves fast; the field just never stops shifting. */
+  animation: sprinkle-drift var(--dur, 12s) var(--delay, 0s) ease-in-out infinite alternate;
 }
 
 .sprinkle-dot {
@@ -155,12 +162,19 @@ body {
   border-radius: 999px;
 }
 
-@keyframes sprinkle-bob {
+@keyframes sprinkle-drift {
   0% {
-    transform: translateY(0) rotate(var(--rot, 0deg));
+    transform: translate(0, 0) rotate(var(--rot, 0deg));
+  }
+  /* The midpoint pushes X further along than Y so the path bows instead of
+     running straight, which reads as drifting rather than sliding. */
+  50% {
+    transform: translate(calc(var(--dx, 8px) * 0.62), calc(var(--dy, -20px) * 0.44))
+      rotate(calc(var(--rot, 0deg) + var(--dr, 20deg) * 0.38));
   }
   100% {
-    transform: translateY(-10px) rotate(calc(var(--rot, 0deg) + 12deg));
+    transform: translate(var(--dx, 8px), var(--dy, -20px))
+      rotate(calc(var(--rot, 0deg) + var(--dr, 20deg)));
   }
 }
 
