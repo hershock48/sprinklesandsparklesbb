@@ -21,20 +21,33 @@ export default function Nav() {
 
   return (
     <header
+      // The notch inset lives on the header, not on the row below, so the row
+      // keeps its own rhythm and the inset stacks on top of it. Resolves to 0 in
+      // normal Safari; it only does anything if this gets installed to a home
+      // screen or the viewport ever goes viewport-fit=cover.
+      style={{ paddingTop: 'env(safe-area-inset-top)' }}
       className={`fixed inset-x-0 top-0 z-50 transition-shadow ${
         solid
           ? 'bg-frosting/90 shadow-[0_6px_24px_-18px_rgba(46,35,64,0.6)] backdrop-blur-md'
           : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto flex max-w-page items-center justify-between gap-4 px-5 py-4">
-        <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <span className="flex gap-1" aria-hidden>
+      <div className="mx-auto flex max-w-page items-center justify-between gap-3 px-5 pb-4 pt-[18px] sm:gap-4 sm:py-4">
+        {/* min-w-0 here plus truncate on the wordmark is the structural half of
+            the fix: the brand is what gives way when space runs out, so no
+            control can be pushed off the right edge the way the menu button
+            was. At real phone widths it never actually needs to truncate. */}
+        <Link
+          href="/"
+          className="flex min-w-0 items-center gap-2 xs:gap-2.5"
+          onClick={() => setOpen(false)}
+        >
+          <span className="flex shrink-0 gap-1" aria-hidden>
             {DOTS.slice(0, 3).map((c) => (
               <span key={c} className="h-2 w-2 rounded-full" style={{ background: c }} />
             ))}
           </span>
-          <span className="whitespace-nowrap font-display text-[15px] font-semibold leading-none tracking-tight text-ink sm:text-xl">
+          <span className="truncate font-display text-[13px] font-semibold leading-none tracking-tight text-ink xs:text-[15px] sm:text-xl">
             Sprinkles <span className="text-pink">&amp;</span> Sparkles BB
           </span>
         </Link>
@@ -51,7 +64,7 @@ export default function Nav() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
             onClick={() => setCartOpen(true)}
@@ -79,7 +92,19 @@ export default function Nav() {
             )}
           </button>
 
-          <Link href="/shop" className="btn-candy !px-5 !py-2.5 text-sm">
+          {/* Hidden on phones. The wordmark plus four controls needed 399px of a
+              390px row, so the menu button was clipped off the right edge. This
+              is the control that goes: the bag beside it still carries the
+              commerce affordance, and the menu opens with a full-width Shop
+              button as its first item. It returns at sm, where all three fit.
+
+              !hidden rather than hidden, and that matters. .btn-candy is plain
+              CSS sitting after @tailwind utilities in globals.css, so its
+              display:inline-flex beats the .hidden utility on source order and a
+              bare "hidden" does nothing here at all. Same reason !px-5 was
+              already spelled that way. Anything that needs to hide or re-lay-out
+              a .btn-candy or .btn-outline needs the bang too. */}
+          <Link href="/shop" className="btn-candy !hidden !px-5 !py-2.5 text-sm sm:!inline-flex">
             Shop
           </Link>
 
@@ -108,9 +133,19 @@ export default function Nav() {
 
       {open && (
         <div className="border-t-2 border-line bg-frosting px-5 pb-6 pt-4 lg:hidden">
+          {/* Carries the Shop call to action that the header drops on phones, at
+              full width so it is the obvious thing to press. The /shop entry is
+              filtered out of the list below so it is not offered twice. */}
+          <Link
+            href="/shop"
+            onClick={() => setOpen(false)}
+            className="btn-candy mb-3 w-full !py-3 sm:!hidden"
+          >
+            Shop all
+          </Link>
           <ul className="space-y-1">
             {nav.map((item, i) => (
-              <li key={item.href}>
+              <li key={item.href} className={item.href === '/shop' ? 'hidden sm:block' : undefined}>
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}

@@ -3,6 +3,12 @@ module.exports = {
   content: ['./app/**/*.{js,jsx}', './components/**/*.{js,jsx}'],
   theme: {
     extend: {
+      // Tailwind's smallest default breakpoint is sm at 640px, which is no use
+      // when the thing that breaks is a 320px phone against a 390px one. 380 is
+      // the width above which the header has room for the wordmark at full size.
+      screens: {
+        xs: '380px',
+      },
       colors: {
         // light, bakery-counter base
         frosting: '#FFFCF7',
