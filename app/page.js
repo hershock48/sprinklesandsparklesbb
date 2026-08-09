@@ -51,7 +51,13 @@ export default function Home() {
 
             <Reveal delay={120} className="relative mx-auto w-full max-w-md">
               <Sparkles />
-              <div className="shine relative aspect-[4/5] rotate-2 overflow-hidden rounded-[36px] border-[6px] border-white shadow-pop">
+              {/* Circular, not a rounded rectangle. aspect-square is doing the
+                  real work: object-cover still crops to its box, so leaving the
+                  box at 4:5 would have produced an oval. The tilt goes with it,
+                  because a rotated circle is indistinguishable from an
+                  unrotated one and the transform only bought a softer edge on
+                  the white ring. */}
+              <div className="shine relative aspect-square overflow-hidden rounded-full border-[6px] border-white shadow-pop">
                 <SoftImage
                   variant="soft"
                   src={heroImage}
@@ -62,7 +68,12 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute -bottom-5 -left-4 -rotate-3 rounded-2xl border-2 border-line bg-white px-5 py-3 shadow-candy">
+              {/* Was -bottom-5 -left-4, tucked into the old square's corner. A
+                  circle has no corner there, so the badge was left floating in
+                  dead space with a gap between it and the image. Moved onto the
+                  lower-left arc instead, keeping the off-centre placement the
+                  brand wants rather than centring it underneath. */}
+              <div className="absolute -left-3 bottom-[7%] -rotate-3 rounded-2xl border-2 border-line bg-white px-5 py-3 shadow-candy sm:bottom-[9%] sm:left-0">
                 <p className="eyebrow text-pink">Most loved</p>
                 <p className="mt-0.5 font-display font-semibold text-ink">
                   Holographic Cake Pops
