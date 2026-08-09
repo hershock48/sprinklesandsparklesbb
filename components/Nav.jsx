@@ -34,8 +34,8 @@ export default function Nav() {
               <span key={c} className="h-2 w-2 rounded-full" style={{ background: c }} />
             ))}
           </span>
-          <span className="whitespace-nowrap font-display text-[16px] font-semibold leading-none tracking-tight text-ink sm:text-xl">
-            Sprinkles <span className="text-pink">&amp;</span> Sparkles
+          <span className="whitespace-nowrap font-display text-[15px] font-semibold leading-none tracking-tight text-ink sm:text-xl">
+            Sprinkles <span className="text-pink">&amp;</span> Sparkles BB
           </span>
         </Link>
 

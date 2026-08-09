@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import SoftImage from '@/components/SoftImage';
 import Link from 'next/link';
 import { useCart } from '@/components/CartProvider';
 import { money } from '@/lib/catalog';
@@ -15,8 +15,8 @@ export default function ProductCard({ product, index = 0 }) {
 
   return (
     <div className="card flex h-full flex-col overflow-hidden" style={{ borderColor: accent }}>
-      <Link href={`/shop/${product.slug}`} className="shine relative block aspect-square">
-        <Image
+      <Link href={`/shop/${product.slug}`} className="relative block aspect-square overflow-hidden">
+        <SoftImage
           src={product.image}
           alt={product.alt}
           fill

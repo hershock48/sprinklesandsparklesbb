@@ -38,6 +38,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`}>
+      <head>
+        <noscript>
+          <style>{`.reveal,.img-soft{opacity:1!important;transform:none!important;filter:none!important}.img-shell{display:none}`}</style>
+        </noscript>
+      </head>
       <body>
         <CartProvider>
           <Nav />

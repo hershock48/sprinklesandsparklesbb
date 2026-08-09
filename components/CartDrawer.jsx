@@ -102,7 +102,7 @@ export default function CartDrawer() {
                       <Image src={p.image} alt={p.alt} fill sizes="80px" className="object-cover" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="truncate font-display font-semibold leading-tight text-ink">
+                      <p className="line-clamp-2 font-display font-semibold leading-tight text-ink">
                         {p.name}
                       </p>
                       <p className="mt-0.5 text-xs text-muted">

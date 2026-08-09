@@ -28,7 +28,8 @@ export default function Reveal({ as: Tag = 'div', delay = 0, className = '', chi
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+      // fire early so the glide finishes as the block settles into view
+      { threshold: 0.02, rootMargin: '0px 0px -4% 0px' }
     );
 
     observer.observe(el);

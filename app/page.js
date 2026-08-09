@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import SoftImage from '@/components/SoftImage';
+import SignupForm from '@/components/SignupForm';
 import Confetti from '@/components/Confetti';
 import Reveal from '@/components/Reveal';
 import Sparkles from '@/components/Sparkles';
@@ -51,7 +52,8 @@ export default function Home() {
             <Reveal delay={120} className="relative mx-auto w-full max-w-md">
               <Sparkles />
               <div className="shine relative aspect-[4/5] rotate-2 overflow-hidden rounded-[36px] border-[6px] border-white shadow-pop">
-                <Image
+                <SoftImage
+                  variant="soft"
                   src={heroImage}
                   alt="Holographic desserts by Sprinkles and Sparkles BB"
                   fill
@@ -117,7 +119,8 @@ export default function Home() {
                 style={{ borderColor: '#FF4E9B' }}
               >
                 <div className="shine relative aspect-[4/3] md:aspect-auto md:min-h-[420px]">
-                  <Image
+                  <SoftImage
+                    variant="soft"
                     src={featured.image}
                     alt={featured.alt}
                     fill
@@ -153,8 +156,8 @@ export default function Home() {
                       className="card flex h-full flex-col overflow-hidden"
                       style={{ borderColor: accent }}
                     >
-                      <div className="shine relative aspect-square">
-                        <Image
+                      <div className="relative aspect-square overflow-hidden">
+                        <SoftImage
                           src={p.image}
                           alt={p.alt}
                           fill
@@ -182,6 +185,12 @@ export default function Home() {
                 );
               })}
             </div>
+
+            <Reveal className="mt-12 text-center">
+              <Link href="/shop" className="btn-outline">
+                See everything in the shop
+              </Link>
+            </Reveal>
           </div>
         </section>
 
@@ -202,8 +211,8 @@ export default function Home() {
                 Ten shades of <span className="holo-text">shimmer</span>
               </h2>
               <p className="mt-5 text-lg text-muted">
-                Made by Brittany, sold through the shops she trusts. Every one of them
-                catches light differently.
+                Made by Brittany in small batches. Every one catches light its own way,
+                and they ship straight from her kitchen in Michigan.
               </p>
             </Reveal>
 
@@ -218,13 +227,13 @@ export default function Home() {
                       className="card block h-full overflow-hidden"
                       style={{ borderColor: accent }}
                     >
-                      <div className="shine relative aspect-square">
-                        <Image
+                      <div className="relative aspect-square overflow-hidden">
+                        <SoftImage
                           src={s.image}
                           alt={s.alt}
                           fill
                           sizes="(max-width: 640px) 45vw, 210px"
-                          className="object-cover transition-transform duration-700 hover:scale-105"
+                          className="object-cover"
                         />
                       </div>
                       <p
@@ -254,13 +263,13 @@ export default function Home() {
         <section id="retailers" className="bg-frosting py-24">
           <div className="mx-auto max-w-page px-5">
             <Reveal className="mb-12 max-w-2xl">
-              <p className="eyebrow mb-4 text-grape">Where to buy</p>
+              <p className="eyebrow mb-4 text-grape">Where else to buy</p>
               <h2 className="font-display text-[clamp(30px,4.6vw,48px)] font-semibold leading-[1.05] tracking-tight text-ink">
-                Six shops carry the line.
+                Also stocked at six shops.
               </h2>
               <p className="mt-5 text-lg text-muted">
-                Sugars, molds and wafer paper ship from these stockists. Pick whichever one
-                you already order from.
+                Order direct from the shop here, or pick up the sugars, molds and wafer
+                paper from whichever of these you already buy from.
               </p>
             </Reveal>
 
@@ -346,7 +355,8 @@ export default function Home() {
                 ]}
               />
               <div className="shine relative aspect-[4/5] -rotate-2 overflow-hidden rounded-[36px] border-[6px] border-white shadow-candy">
-                <Image
+                <SoftImage
+                  variant="soft"
                   src={aboutImage}
                   alt="Brittany Bennett of Sprinkles and Sparkles BB"
                   fill
@@ -421,21 +431,7 @@ export default function Home() {
             <p className="mx-auto mt-4 max-w-md text-muted">
               Plus the holographic color guide, free, the moment you sign up.
             </p>
-            <form className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row">
-              <label htmlFor="email" className="sr-only">
-                Email address
-              </label>
-              <input
-                id="email"
-                type="email"
-                required
-                placeholder="you@example.com"
-                className="w-full rounded-full border-2 border-line bg-white px-6 py-3 text-ink placeholder:text-muted/60 focus:border-aqua focus:outline-none"
-              />
-              <button type="submit" className="btn-candy whitespace-nowrap">
-                Send it
-              </button>
-            </form>
+            <SignupForm />
             <p className="mt-4 text-xs text-muted">No spam. Leave whenever you like.</p>
           </Reveal>
         </section>

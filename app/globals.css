@@ -185,15 +185,59 @@ body {
 
 /* ---------------- scroll reveal + sparkle ---------------- */
 
+/* Content glides up and settles rather than snapping in. Long duration and a
+   soft-landing curve are what make it read as frosting instead of a jump. */
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translate3d(0, 28px, 0) scale(0.988);
+  filter: blur(7px);
+  transition:
+    opacity 1000ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1000ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 800ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.is-in {
   opacity: 1;
-  transform: none;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+/* Images fade and un-blur as they decode, so nothing snaps into place. */
+.img-soft {
+  opacity: 0;
+  transform: scale(1.05);
+  filter: blur(12px);
+  transition:
+    opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1400ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-soft.img-loaded {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+/* Pastel placeholder that sits under an image while it loads. */
+.img-shell {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #fff6ea 0%, #ffedd6 40%, #ffe3f0 70%, #e6f7fb 100%);
+  background-size: 220% 220%;
+  animation: shell-drift 2.8s ease-in-out infinite alternate;
+  transition: opacity 700ms ease 120ms;
+}
+.img-shell.img-hidden {
+  opacity: 0;
+}
+
+@keyframes shell-drift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 .spark {
@@ -265,9 +309,14 @@ body {
     animation: none !important;
     transition: none !important;
   }
-  .reveal {
+  .reveal,
+  .img-soft {
     opacity: 1;
     transform: none;
+    filter: none;
+  }
+  .img-shell {
+    display: none;
   }
   html {
     scroll-behavior: auto;
