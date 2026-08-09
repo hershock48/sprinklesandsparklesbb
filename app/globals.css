@@ -178,6 +178,87 @@ body {
   }
 }
 
+/* ---------------- sprinkle cover / scroll reveal ---------------- */
+
+/* Registered as real numbers rather than left as raw token substitution. An
+   unregistered custom property is only text until it is substituted, so the
+   nested arithmetic below is evaluated late and inconsistently across engines.
+   Typed, it is a number everywhere, and the initial value is the safe end. */
+@property --r {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 1;
+}
+@property --p {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 1;
+}
+
+/* --r is the reveal, 0 buried to 1 clear. SprinkleCover sets it once per frame
+   on this element and everything below derives from it, so the whole effect
+   costs one style write regardless of how many pieces there are.
+
+   The default is 1, not 0. With no JavaScript nothing ever sets it, and a hero
+   photo permanently hidden under confetti is a far worse failure than missing
+   the effect. The .sc-armed class, added on mount, is what flips the starting
+   point to buried, so the covering only exists where it can be removed. */
+.sc-root {
+  --r: 1;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sc-armed {
+  --r: 0;
+}
+
+/* The covering itself: one tiled element rather than a thousand nodes.
+   Retreats in two ways at once, which is what stops it reading as a plain
+   fade. The mask lifts it from the top downward, agreeing with the direction
+   the loose pieces fall, and the whole layer eases out over the last stretch. */
+.sc-texture {
+  position: absolute;
+  inset: -6%;
+  background-repeat: repeat;
+  background-size: 88px 88px, 127px 127px;
+  background-position: 0 0, 31px 19px;
+  opacity: calc(1 - var(--r) * 0.35);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent calc(var(--r) * 155% - 30%),
+    #000 calc(var(--r) * 155%)
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent calc(var(--r) * 155% - 30%),
+    #000 calc(var(--r) * 155%)
+  );
+}
+
+.sc-piece {
+  position: absolute;
+  width: 14px;
+  height: 5px;
+  border-radius: 999px;
+  /* --head gives lower pieces a head start, so the pile drains from the bottom
+     instead of the whole field sliding together. The 0.55 keeps the last piece
+     clear by the time --r reaches 1 rather than exactly at it. */
+  --p: max(0, min(1, calc((var(--r) - (1 - var(--head)) * 0.45) / 0.55)));
+  transform: translate(calc(var(--sway) * var(--p)), calc(var(--fall) * var(--p)))
+    rotate(calc(var(--rot) + var(--spin) * var(--p)));
+  /* Holds full opacity for most of the fall and only gives out near the end, so
+     you watch pieces leave rather than watching them dissolve in place. */
+  opacity: max(0, min(1, calc((1 - var(--p)) * 3)));
+}
+
+.sc-dot {
+  width: 7px;
+  height: 7px;
+}
+
 /* candy stripe divider, a nod to the dessert sheets */
 .stripe {
   background-image: repeating-linear-gradient(

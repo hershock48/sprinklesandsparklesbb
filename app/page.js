@@ -3,6 +3,7 @@ import SignupForm from '@/components/SignupForm';
 import Confetti from '@/components/Confetti';
 import Reveal from '@/components/Reveal';
 import Sparkles from '@/components/Sparkles';
+import SprinkleCover from '@/components/SprinkleCover';
 import Link from 'next/link';
 import { retailers, heroImage, aboutImage, site } from '@/lib/data';
 import { homeProducts, sugars, money } from '@/lib/catalog';
@@ -67,6 +68,9 @@ export default function Home() {
                   sizes="(max-width: 1024px) 90vw, 440px"
                   className="object-cover"
                 />
+                {/* Inside the circle's overflow-hidden, so the covering and the
+                    pieces falling out of it are both clipped to the arc. */}
+                <SprinkleCover />
               </div>
               {/* Was -bottom-5 -left-4, tucked into the old square's corner. A
                   circle has no corner there, so the badge was left floating in
