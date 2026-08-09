@@ -1,5 +1,9 @@
 import './globals.css';
 import { Fredoka, Nunito } from 'next/font/google';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
+import CartDrawer from '@/components/CartDrawer';
+import { CartProvider } from '@/components/CartProvider';
 
 const display = Fredoka({
   subsets: ['latin'],
@@ -16,7 +20,11 @@ const sans = Nunito({
 });
 
 export const metadata = {
-  title: 'Sprinkles & Sparkles BB | Holographic desserts, tutorials and sanding sugars',
+  metadataBase: new URL('https://sprinklesandsparklesbb.vercel.app'),
+  title: {
+    default: 'Sprinkles & Sparkles BB | Holographic desserts, tutorials and sanding sugars',
+    template: '%s | Sprinkles & Sparkles BB',
+  },
   description:
     'Brittany Bennett has spent 15 years making desserts catch the light. Holographic tutorials, Sparkling Sanding Sugars, dessert sheets and in person workshops.',
   openGraph: {
@@ -30,7 +38,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <CartProvider>
+          <Nav />
+          {children}
+          <Footer />
+          <CartDrawer />
+        </CartProvider>
+      </body>
     </html>
   );
 }

@@ -1,17 +1,10 @@
 import Image from 'next/image';
-import Nav from '@/components/Nav';
-import Footer from '@/components/Footer';
 import Confetti from '@/components/Confetti';
 import Reveal from '@/components/Reveal';
 import Sparkles from '@/components/Sparkles';
-import {
-  products,
-  sugars,
-  retailers,
-  heroImage,
-  aboutImage,
-  site,
-} from '@/lib/data';
+import Link from 'next/link';
+import { retailers, heroImage, aboutImage, site } from '@/lib/data';
+import { homeProducts, sugars, money } from '@/lib/catalog';
 
 // bright colors for borders and decoration
 const ACCENTS = ['#FF4E9B', '#FFC93C', '#2DC7DE', '#5FCB53', '#8B6BFF', '#FF8A3D'];
@@ -19,12 +12,10 @@ const ACCENTS = ['#FF4E9B', '#FFC93C', '#2DC7DE', '#5FCB53', '#8B6BFF', '#FF8A3D
 const INKS = ['#E8317F', '#B57C00', '#0E93A8', '#358F35', '#7B57F0', '#DC6A13'];
 
 export default function Home() {
-  const featured = products.find((p) => p.featured);
-  const rest = products.filter((p) => !p.featured);
+  const [featured, ...rest] = homeProducts;
 
   return (
     <>
-      <Nav />
       <main id="top">
         {/* ---------------- hero ---------------- */}
         <section className="relative overflow-hidden bg-vanilla pb-20 pt-32 md:pb-28 md:pt-40">
@@ -48,12 +39,12 @@ export default function Home() {
                 every holographic cake pop on your feed start here.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-3">
-                <a href="#tutorials" className="btn-candy">
+                <Link href="/shop?category=Tutorials" className="btn-candy">
                   Learn the holographic method
-                </a>
-                <a href="#sugars" className="btn-outline">
+                </Link>
+                <Link href="/shop?category=Sanding%20Sugars" className="btn-outline">
                   See the sugars
-                </a>
+                </Link>
               </div>
             </Reveal>
 
@@ -120,8 +111,8 @@ export default function Home() {
                   { top: '20%', right: '-2%', size: 20, color: '#8B6BFF', delay: 1.7 },
                 ]}
               />
-              <a
-                href={featured.href}
+              <Link
+                href={`/shop/${featured.slug}`}
                 className="card group mb-6 grid overflow-hidden md:grid-cols-2"
                 style={{ borderColor: '#FF4E9B' }}
               >
@@ -135,19 +126,19 @@ export default function Home() {
                   />
                 </div>
                 <div className="flex flex-col justify-center gap-4 p-8 lg:p-12">
-                  <p className="eyebrow text-pink">{featured.note}</p>
+                  <p className="eyebrow text-pink">{featured.tagline}</p>
                   <h3 className="font-display text-3xl font-semibold leading-tight tracking-tight text-ink">
-                    {featured.title}
+                    {featured.name}
                   </h3>
                   <p className="text-muted">{featured.blurb}</p>
                   <div className="mt-2 flex items-center gap-4">
                     <span className="font-display text-3xl font-semibold text-pink">
-                      {featured.price}
+                      {money(featured.price)}
                     </span>
                     <span className="text-sm text-muted">Video plus PDF, yours forever</span>
                   </div>
                 </div>
-              </a>
+              </Link>
             </Reveal>
 
             {/* the rest */}
@@ -156,9 +147,9 @@ export default function Home() {
                 const accent = ACCENTS[(i + 1) % ACCENTS.length];
                 const inkAccent = INKS[(i + 1) % INKS.length];
                 return (
-                  <Reveal key={p.title} delay={i * 90}>
-                    <a
-                      href={p.href}
+                  <Reveal key={p.slug} delay={i * 90}>
+                    <Link
+                      href={`/shop/${p.slug}`}
                       className="card flex h-full flex-col overflow-hidden"
                       style={{ borderColor: accent }}
                     >
@@ -173,20 +164,20 @@ export default function Home() {
                       </div>
                       <div className="flex flex-1 flex-col gap-2 p-5">
                         <p className="eyebrow" style={{ color: inkAccent }}>
-                          {p.note}
+                          {p.tagline}
                         </p>
                         <h3 className="font-display text-lg font-semibold leading-snug tracking-tight text-ink">
-                          {p.title}
+                          {p.name}
                         </h3>
                         <p className="flex-1 text-sm leading-relaxed text-muted">{p.blurb}</p>
                         <span
                           className="mt-1 font-display text-2xl font-semibold"
                           style={{ color: inkAccent }}
                         >
-                          {p.price}
+                          {money(p.price)}
                         </span>
                       </div>
-                    </a>
+                    </Link>
                   </Reveal>
                 );
               })}
@@ -221,36 +212,40 @@ export default function Home() {
                 const accent = ACCENTS[i % ACCENTS.length];
                 const inkAccent = INKS[i % INKS.length];
                 return (
-                  <Reveal key={s.name} delay={(i % 5) * 80}>
-                    <figure
-                      className="card h-full overflow-hidden"
+                  <Reveal key={s.slug} delay={(i % 5) * 80}>
+                    <Link
+                      href={`/shop/${s.slug}`}
+                      className="card block h-full overflow-hidden"
                       style={{ borderColor: accent }}
                     >
                       <div className="shine relative aspect-square">
                         <Image
                           src={s.image}
-                          alt={`${s.name} Sparkling Sanding Sugar`}
+                          alt={s.alt}
                           fill
                           sizes="(max-width: 640px) 45vw, 210px"
                           className="object-cover transition-transform duration-700 hover:scale-105"
                         />
                       </div>
-                      <figcaption
-                        className="px-3 py-3 text-center font-display text-[15px] font-semibold tracking-tight"
+                      <p
+                        className="px-3 pb-1 pt-3 text-center font-display text-[15px] font-semibold leading-tight tracking-tight"
                         style={{ color: inkAccent }}
                       >
-                        {s.name}
-                      </figcaption>
-                    </figure>
+                        {s.shortName}
+                      </p>
+                      <p className="pb-3 text-center text-sm font-bold text-muted">
+                        {money(s.price)}
+                      </p>
+                    </Link>
                   </Reveal>
                 );
               })}
             </div>
 
             <Reveal className="mt-12 text-center">
-              <a href="#retailers" className="btn-candy">
-                Find a shop that carries them
-              </a>
+              <Link href="/shop?category=Sanding%20Sugars" className="btn-candy">
+                Shop all ten shades
+              </Link>
             </Reveal>
           </div>
         </section>
@@ -445,7 +440,6 @@ export default function Home() {
           </Reveal>
         </section>
       </main>
-      <Footer />
     </>
   );
 }
