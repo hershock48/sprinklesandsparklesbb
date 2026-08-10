@@ -1,4 +1,5 @@
 import { site, nav } from '@/lib/data';
+import GlazedCredit from '@/components/GlazedCredit';
 
 const DOTS = ['#FF4E9B', '#FFC93C', '#2DC7DE', '#5FCB53', '#8B6BFF'];
 
@@ -78,12 +79,10 @@ export default function Footer() {
       <div className="bg-vanilla">
         <div className="mx-auto flex max-w-page flex-col gap-2 px-5 py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; {new Date().getFullYear()} Sprinkles &amp; Sparkles BB. All rights reserved.</p>
-          <p>
-            Site by{' '}
-            <a href="https://glazedweb.com" className="font-bold text-pink hover:text-grape">
-              Glazed Web
-            </a>
-          </p>
+          {/* Was plain text on the non-www host. The component inherits this bar's own
+              colour, so the mark reads on vanilla without putting a second pink into a
+              footer that already has one. */}
+          <GlazedCredit line="Double dipped by" />
         </div>
       </div>
     </footer>
