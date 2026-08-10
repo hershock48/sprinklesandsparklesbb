@@ -1,5 +1,5 @@
 import { site, nav } from '@/lib/data';
-import GlazedCredit from '@/components/GlazedCredit';
+import GlazedPlate from '@/components/GlazedPlate';
 
 const DOTS = ['#FF4E9B', '#FFC93C', '#2DC7DE', '#5FCB53', '#8B6BFF'];
 
@@ -75,16 +75,17 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="stripe h-2 w-full" aria-hidden />
       <div className="bg-vanilla">
         <div className="mx-auto flex max-w-page flex-col gap-2 px-5 py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; {new Date().getFullYear()} Sprinkles &amp; Sparkles BB. All rights reserved.</p>
           {/* Was plain text on the non-www host. The component inherits this bar's own
               colour, so the mark reads on vanilla without putting a second pink into a
               footer that already has one. */}
-          <GlazedCredit line="Double Dipped by" />
         </div>
       </div>
+
+      {/* Glazed Web signs off below the client's footer, not inside it. */}
+      <GlazedPlate line="Double Dipped by" />
     </footer>
   );
 }
