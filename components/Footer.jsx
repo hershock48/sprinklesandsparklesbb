@@ -82,7 +82,7 @@ export default function Footer() {
           {/* Was plain text on the non-www host. The component inherits this bar's own
               colour, so the mark reads on vanilla without putting a second pink into a
               footer that already has one. */}
-          <GlazedCredit line="Double dipped by" />
+          <GlazedCredit line="Double Dipped by" />
         </div>
       </div>
     </footer>
