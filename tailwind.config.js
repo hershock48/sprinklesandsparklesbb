@@ -16,7 +16,7 @@ module.exports = {
         batter: '#FFEDD6',
         shell: '#FFFFFF',
         ink: '#2E2340',
-        muted: '#7A6A8A', // was #7C6C8C, 4.47:1 on vanilla, three hundredths short. Token, not element.
+        muted: '#6E5E7E', // was #7C6C8C (4.47:1 on vanilla, three hundredths short), then #7A6A8A, which still failed at 320 where the hero eyebrow sits over the pink glow. 5.3:1 on vanilla leaves headroom for tinted grounds. Token, not element.
         line: '#F0E3D6',
 
         // the sprinkle jar
