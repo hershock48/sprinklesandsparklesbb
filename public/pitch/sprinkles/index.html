@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Glazed Web × Sprinkles &amp; Sparkles BB · Proposal</title>
+<meta name="description" content="A website proposal for Sprinkles &amp; Sparkles BB in Marshall, Michigan. Every claim links to the evidence.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Glazed Web">
+<meta property="og:url" content="https://sprinkles.glazedweb.com/">
+<meta property="og:title" content="Does your website sparkle?">
+<meta property="og:description" content="A website proposal for Sprinkles &amp; Sparkles BB, where every claim links to the proof.">
+<meta property="og:image" content="https://sprinkles.glazedweb.com/pitch/sprinkles/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Does your website sparkle? A proposal from Glazed Web.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Does your website sparkle?">
+<meta name="twitter:description" content="A website proposal for Sprinkles &amp; Sparkles BB, where every claim links to the proof.">
+<meta name="twitter:image" content="https://sprinkles.glazedweb.com/pitch/sprinkles/og.jpg">
+<meta name="theme-color" content="#FDF6EC">
+<link rel="icon" type="image/png" sizes="256x256" href="/pitch/sprinkles/icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/pitch/sprinkles/apple-touch-icon.png">
+<style>
+:root{
+ --paper:#FDF6EC; --paper2:#FFF7EA; --card:#FFFDF8;
+ --ink:#2B1E16; --ink2:#201712; --body:#6B5747; --mute:#7A6753; --line:#E8DCC8;
+ --pink:#E84D8A; --pink-d:#CE3672; --pink-t:#FCE7F0;
+ /* Pink that has to survive on the paper background rather than on a card: --pink-d
+    measures 4.45 there, which is a fail, and 4.7 on --card, which is why the same
+    colour passes inside a claim and fails outside one. Token, not element. */
+ --pink-ink:#C9356F;
+ --green:#BFE07A; --green-b:#A9D65C; --green-d:#467C3D; --green-t:#F1F8DC;
+ --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+ --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--body);font-family:var(--sans);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4,.k,.btn,nav,th,.num,.chip{font-family:var(--sans)}
+.k{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--green-d)}
+h2{font-size:clamp(30px,4.4vw,48px);font-weight:800;color:var(--ink);letter-spacing:-1.6px;line-height:1.08;margin:10px 0 14px}
+h3{font-size:19px;font-weight:800;color:var(--ink);margin:34px 0 10px;letter-spacing:-.4px}
+p{margin:0 0 14px}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--pink-ink)}
+.rule{height:3px;width:52px;background:var(--pink);border-radius:2px;margin:0 0 18px}
+section{padding:60px 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+
+/* header */
+header{position:sticky;top:0;z-index:60;background:rgba(253,246,236,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand .gl{height:34px;width:auto;display:block}
+.brand .bw{font-family:var(--sans);font-weight:800;font-size:19px;color:var(--ink);letter-spacing:-.6px;line-height:1.1}
+.brand .bw span{font-weight:350;color:var(--mute)}
+.brand span{font-size:.72rem;color:var(--mute);font-style:italic}
+nav{display:flex;gap:20px;font-size:.72rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+nav a{color:var(--mute);text-decoration:none}
+nav a:hover{color:var(--pink-d)}
+/* The one action the header sells: the demo. Lives outside <nav> so the
+   720px rule that hides the section anchors cannot take it with them. */
+.hright{display:flex;align-items:center;gap:20px}
+.hdemo{display:inline-block;background:var(--pink-d);color:#fff;font-weight:700;font-size:.72rem;letter-spacing:.09em;
+ text-transform:uppercase;padding:10px 18px;border-radius:999px;text-decoration:none;white-space:nowrap;
+ box-shadow:0 6px 16px -6px rgba(232,77,138,.55);transition:all .18s}
+.hdemo:hover{background:var(--green);color:var(--ink);transform:translateY(-1px)}
+@media(max-width:720px){nav{display:none}.brand .bw~span{display:none}}
+@media(max-width:400px){.hdemo{font-size:.66rem;padding:9px 13px;letter-spacing:.06em}}
+
+/* hero */
+.hero{padding:66px 0 54px;text-align:left}
+.hero .mark{height:92px;width:auto;margin-bottom:24px;display:block}
+.hero h1{font-family:var(--sans);font-size:clamp(38px,5.5vw,60px);font-weight:800;color:var(--ink);letter-spacing:-2px;line-height:1.04}
+.hero h1 em{font-style:normal;color:var(--pink)}
+.hero .sub{font-size:1.12rem;color:var(--body);margin-top:20px;max-width:31em}
+.forwho{margin-top:26px;font-family:var(--sans);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);line-height:1.9}
+.forwho b{color:var(--ink)}
+
+/* tldr */
+.tldr{background:var(--ink);color:#F6EFE4;border-radius:16px;padding:26px 26px 22px;margin-top:38px}
+/* The thesis box. One per letter, for the sentence the whole pitch hangs on. */
+.gap{background:var(--pink-t);border-left:5px solid var(--pink);border-radius:0 13px 13px 0;padding:24px 26px;margin:30px 0 14px}
+.gap .big{font-family:var(--sans);font-weight:800;font-size:1.35rem;line-height:1.3;color:var(--ink);letter-spacing:-.3px;margin:0 0 12px}
+.gap p{margin:0;font-size:1rem;line-height:1.65}
+.tldr .k{color:var(--green)}
+.demo .k{color:var(--green)}
+.tldr ul{list-style:none;margin:14px 0 0}
+.tldr li{display:flex;gap:12px;padding:9px 0;border-top:1px solid rgba(255,255,255,.1);font-size:.97rem;line-height:1.5}
+.tldr li:first-child{border-top:0}
+.tldr .n{font-family:var(--sans);font-weight:800;color:var(--green);flex:0 0 auto;font-size:.8rem;padding-top:3px}
+.tldr b{color:#fff}
+
+/* claim cards */
+.claim{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 20px;margin:12px 0;transition:border-color .16s,transform .16s}
+.claim:hover{border-color:var(--pink);transform:translateY(-1px)}
+.claim h4{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+.claim p{font-size:.95rem;margin:0}
+.claim .verify{display:inline-flex;align-items:center;gap:7px;margin-top:12px;margin-right:6px;font-family:var(--sans);font-size:.71rem;font-weight:700;
+ letter-spacing:.1em;text-transform:uppercase;color:var(--pink-d);text-decoration:none;border:1.5px solid var(--pink);
+ padding:7px 13px;border-radius:999px;transition:all .16s}
+.claim .verify:hover{background:var(--pink);color:#fff}
+.claim .verify.plain{border-color:var(--line);color:var(--mute);cursor:default}
+.claim .verify.plain:hover{background:transparent;color:var(--mute)}
+/* Same pill, usable outside a claim card (the pricing citations). */
+.verify.loose{display:inline-flex;align-items:center;gap:7px;margin:0 6px 12px 0;font-family:var(--sans);font-size:.71rem;font-weight:700;
+ letter-spacing:.08em;text-transform:uppercase;color:var(--pink-ink);text-decoration:none;border:1.5px solid var(--pink);
+ border-radius:999px;padding:7px 14px;transition:all .16s}
+.verify.loose:hover{background:var(--pink);color:#fff}
+.mono{font-family:ui-monospace,Menlo,monospace;font-size:.83em;color:var(--mute)}
+
+/* compare table */
+.cmp{width:100%;border-collapse:collapse;margin:16px 0;font-size:.93rem}
+.cmp th{font-family:var(--sans);text-align:left;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;
+ padding:0 10px 9px 0;border-bottom:2px solid var(--ink);color:var(--ink);vertical-align:bottom}
+.cmp td{padding:12px 10px 12px 0;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}
+.cmp td:first-child{font-weight:700;color:var(--ink);width:24%;font-family:var(--sans);font-size:.86rem}
+.cmp td:nth-child(2){width:36%;color:var(--mute)}
+.cmp td:nth-child(3){width:40%}
+.tick{color:var(--green-d);font-weight:800}
+
+/* price */
+.pricebox{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.pricebox>div{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:20px}
+.pricebox .n{font-family:var(--sans);font-size:2rem;font-weight:800;color:var(--ink);letter-spacing:-.03em;line-height:1}
+.pricebox .l{font-size:.85rem;color:var(--mute);margin-top:7px;line-height:1.4}
+/*
+  The melt. .price-num is what counts; tabular figures so the card does not
+  jitter sideways while the digits change. .was is the struck market anchor
+  and it is the ONLY place the anchor lives in the markup: the number in the
+  DOM is the real price, and the script writes the anchor in and counts it
+  down. Scripts blocked, or reduced motion, and the reader sees $500.
+*/
+.pricebox .was{display:block;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.pricebox .was s{text-decoration-color:var(--pink);text-decoration-thickness:2px}
+.price-num{font-variant-numeric:tabular-nums}
+@media(max-width:600px){.pricebox{grid-template-columns:1fr}}
+
+/* demo cta */
+.demo{background:linear-gradient(135deg,#201712,#3A2416);color:#F6EFE4;border-radius:18px;padding:32px;margin:22px 0;text-align:center}
+/*
+  text-indent pays back the trailing letter-space. Centred type with .3em of tracking
+  carries an empty .3em after its last character, and the browser centres the box
+  including that space, so the words sit half a space left of centre. Everything else
+  in this block is centred on the same axis, which is what made it read as crooked.
+*/
+.demo .k{color:var(--green)}
+.demo-cta .k{text-indent:.3em}
+.demo h3{color:#fff;margin:10px 0 8px;font-size:1.4rem}
+/*
+  margin:0 auto, and NOT overridden inline. This paragraph is a 34em block inside a
+  centred parent: with margin:0 the block pins to the left edge and only its text
+  centres, which put this line visibly off-axis from the eyebrow and the button above
+  it. The auto margins centre the block itself.
+*/
+.demo p{color:#D8CBBA;font-size:.98rem;max-width:34em;margin:0 auto}
+.demo a{display:inline-block;background:var(--pink-d);color:#fff;font-family:var(--sans);font-weight:700;font-size:.82rem;box-shadow:0 6px 16px -6px rgba(206,54,114,.55);
+ letter-spacing:.09em;text-transform:uppercase;padding:15px 30px;border-radius:999px;text-decoration:none;transition:all .18s;
+ max-width:100%;text-indent:.09em;box-sizing:border-box}
+.demo a:hover{background:var(--green);color:var(--ink);transform:translateY(-2px)}
+/*
+  On a phone the address is nearly as wide as the card, and an inline-block that
+  outgrows its line does not centre, it overflows to the right: the button was sitting
+  13px off the axis with its shadow running under the card's edge. Smaller type and
+  tighter padding put it back inside, which matters because this is the one button in
+  the whole letter we are asking anyone to press, and this is the screen we are asking
+  them to press it on.
+*/
+@media(max-width:430px){
+ .demo{padding:26px 18px}
+ .demo a{font-size:.72rem;padding:14px 20px;letter-spacing:.06em;text-indent:.06em}
+}
+
+/* the proof list: measured claims, so they get ticks rather than bullets */
+.proof{list-style:none;margin:10px 0 4px}
+.proof li{position:relative;padding:7px 0 7px 26px;font-size:.97rem;border-top:1px solid var(--line)}
+.proof li:first-child{border-top:0}
+.proof li::before{content:"";position:absolute;left:2px;top:15px;width:9px;height:9px;border-radius:50%;background:var(--green-b)}
+.proof b{color:var(--ink)}
+
+/* steps */
+.step{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+/*
+  The glazed disc, lifted from glazedweb's app/globals.css (.step .num) with the
+  studio tokens mapped onto this page's: --slime is --green, --chocolate is --ink.
+  position:relative and overflow:hidden are the two lines that make it work and
+  the two with no visible effect on their own. Without them the ::before highlight
+  lands somewhere up the page and the ::after sweep runs across the card.
+*/
+.step .num{
+ width:42px;height:42px;border-radius:50%;flex:0 0 auto;
+ background:radial-gradient(circle at 32% 26%,#EAF7C6 0%,var(--green) 48%,#9CCB4F 100%);
+ box-shadow:inset 0 2px 3px rgba(255,255,255,.7),inset 0 -3px 5px rgba(67,129,58,.35);
+ display:flex;align-items:center;justify-content:center;
+ font-weight:800;font-size:17px;color:var(--ink);
+ border:2px solid var(--ink);
+ position:relative;overflow:hidden;
+}
+.step .num::before{
+ content:"";position:absolute;top:4px;left:7px;width:12px;height:7px;
+ border-radius:50%;background:rgba(255,255,255,.75);
+ transform:rotate(-18deg);filter:blur(.5px);
+}
+.step .num::after{
+ content:"";position:absolute;top:-30%;left:0;width:40%;height:160%;
+ background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.9),rgba(255,255,255,0));
+ transform:translateX(-160%) skewX(-18deg);opacity:0;
+}
+.step.glazed .num::after{animation:glazeSweep .9s ease-out both}
+@keyframes glazeSweep{
+ 0%{transform:translateX(-160%) skewX(-18deg);opacity:0}
+ 12%{opacity:1}
+ 100%{transform:translateX(340%) skewX(-18deg);opacity:0}
+}
+.step h4{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:4px}
+.step p{font-size:.95rem;margin:0}
+
+footer{background:var(--ink);color:#B9A894;padding:44px 0;font-size:.86rem;margin-top:20px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer .gl-foot{height:62px;width:auto;opacity:.95}
+footer b{color:#F6EFE4;display:block;font-family:var(--sans);font-size:.95rem;margin-bottom:4px}
+footer .bw{display:block;font-weight:800;color:#F6EFE4;letter-spacing:-.6px;margin-bottom:5px}
+footer .bw span{font-weight:350;color:#A6907F}
+footer a{color:var(--green)}
+.conf{font-size:.72rem;color:#7A6A58;margin-top:14px;letter-spacing:.04em}
+.note{font-size:.85rem;color:var(--mute);font-style:italic;line-height:1.5}
+
+/* --- the mark, and its drip, lifted from glazedweb.com --- */
+.gmark{display:block;overflow:visible}
+.gmark .goo{transform-box:fill-box;transform-origin:50% 0;animation:breathe 6s ease-in-out infinite}
+.gmark .wob1,.gmark .wob2,.gmark .wob3,.gmark .wobB{transform-box:fill-box;transform-origin:50% 0}
+.gmark .wob1{animation:sagg 3.8s ease-in-out -.6s infinite}
+.gmark .wob2{animation:sagg 4.9s ease-in-out -2.1s infinite}
+.gmark .wob3{animation:sagg 4.3s ease-in-out -1.3s infinite}
+.gmark .wobB{animation:sagg 5.6s ease-in-out -3s infinite}
+.gmark .string{transform-box:fill-box;transform-origin:50% 0;animation:stringy 3.4s cubic-bezier(.55,.1,.8,.5) infinite}
+.gmark .droplet{transform-box:fill-box;transform-origin:center;animation:fall 3.4s cubic-bezier(.5,.08,.85,.6) infinite}
+.gmark .droplet2{transform-box:fill-box;transform-origin:center;animation:fall2 5.1s cubic-bezier(.5,.08,.85,.6) -2.4s infinite}
+@keyframes breathe{0%,to{transform:scaleY(1)}50%{transform:scaleY(1.02)}}
+@keyframes sagg{0%,to{transform:scaleY(1) scaleX(1)}50%{transform:scaleY(1.07) scaleX(.98)}}
+@keyframes stringy{0%{transform:scaleY(.1);opacity:0}25%{transform:scaleY(.8);opacity:1}60%{transform:scaleY(1.7);opacity:.85}80%{transform:scaleY(2.4);opacity:0}to{transform:scaleY(.1);opacity:0}}
+@keyframes fall{0%{transform:translateY(-16px) scaleY(1.5) scaleX(.7);opacity:0}22%{transform:translateY(-8px) scaleY(1.2) scaleX(.85);opacity:1}60%{transform:translateY(10px) scale(1);opacity:1}to{transform:translateY(38px) scaleY(1.15) scaleX(.9);opacity:0}}
+@keyframes fall2{0%{transform:translateY(-10px) scaleY(1.4) scaleX(.75);opacity:0}25%{transform:translateY(-4px) scale(1);opacity:1}65%{transform:translateY(8px) scale(1);opacity:1}to{transform:translateY(26px) scale(1);opacity:0}}
+@media (prefers-reduced-motion:reduce){
+ .gmark .goo,.gmark .wob1,.gmark .wob2,.gmark .wob3,.gmark .wobB,
+ .gmark .string,.gmark .droplet,.gmark .droplet2{animation:none}
+ .step.glazed .num::after{animation:none}
+}
+.brand .gmark{height:38px;width:auto;margin-bottom:-6px}
+.hero .gmark{height:112px;width:auto;margin-bottom:26px}
+footer .gmark{height:78px;width:auto}
+.conf{color:#D8CBBA}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <a class="brand" href="#top" aria-label="Glazed Web">
+  <svg class="gmark gl" viewBox="0 0 200 250" overflow="visible" aria-hidden="true"><defs><linearGradient id="dgGrad" x1="0" y1="92" x2="0" y2="165" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5FA850"></stop><stop offset="100%" stop-color="#43813A"></stop></linearGradient><linearGradient id="lgGrad" x1="0" y1="92" x2="0" y2="215" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#D9EDA0"></stop><stop offset="55%" stop-color="#BFE07A"></stop><stop offset="100%" stop-color="#A3CE55"></stop></linearGradient><radialGradient id="pinkGrad" cx="40%" cy="34%" r="75%"><stop offset="0%" stop-color="#F887B2"></stop><stop offset="55%" stop-color="#E84D8A"></stop><stop offset="100%" stop-color="#CE3672"></stop></radialGradient><linearGradient id="creepGrad" x1="0" y1="90" x2="0" y2="124" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E3F2B0"></stop><stop offset="100%" stop-color="#C3E181"></stop></linearGradient></defs><g class="goo"><g fill="url(#dgGrad)"><ellipse cx="100" cy="110" rx="38" ry="15"></ellipse><path class="wobB" d="M 86 100 C 86 116, 87 130, 88 142 C 88 148, 91 149, 92 142 C 93 130, 92 114, 92 100 Z"></path><path d="M 114 100 C 114 112, 115 124, 116 134 C 116 140, 119 141, 120 134 C 121 124, 120 110, 120 100 Z"></path></g><g fill="url(#lgGrad)"><path class="wob1" d="M 64 100 C 63 120, 65 138, 66 152 C 66 164, 68 172, 74 173 C 80 172, 83 165, 82 154 C 84 136, 85 116, 86 100 Z"></path><path class="wob2" d="M 92 100 C 91 128, 93 152, 94 172 C 94 188, 97 199, 104 200 C 111 199, 114 190, 112 174 C 113 150, 114 124, 114 100 Z"></path><path class="wob3" d="M 120 100 C 119 116, 120 130, 121 142 C 121 152, 123 159, 129 160 C 134 159, 137 153, 135 144 C 136 130, 137 114, 137 100 Z"></path></g></g><path class="string" d="M 104 199 L 104 209" stroke="#BFE07A" stroke-width="2.5" stroke-linecap="round" fill="none"></path><g class="droplet"><circle cx="104" cy="213" r="7" fill="#BFE07A"></circle><circle cx="102" cy="211" r="2" fill="#F1F8DC" opacity="0.9"></circle></g><circle class="droplet2" cx="74" cy="186" r="4.5" fill="#BFE07A"></circle><circle cx="100" cy="70" r="52" fill="url(#pinkGrad)"></circle><path d="M 56 98 A 52 52 0 0 0 144 98 C 142 94, 138 92, 134 94 C 130 97, 129 102, 125 104 C 119 106, 116 98, 110 96 C 104 94, 103 102, 98 105 C 93 107, 90 100, 84 97 C 78 95, 76 100, 71 102 C 66 103, 62 100, 56 98 Z" fill="url(#creepGrad)"></path><path d="M 68 106 A 42 42 0 0 0 84 116" fill="none" stroke="#F1F8DC" stroke-width="4" stroke-linecap="round" opacity="0.85"></path><path d="M 97 144 Q 103 151 109 144" fill="none" stroke="#55974A" stroke-width="4" stroke-linecap="round"></path><g stroke="#F1F8DC" fill="none" stroke-linecap="round"><path d="M 97 128 C 96 148, 97 166, 100 182" stroke-width="4.5" opacity="0.85"></path><path d="M 69 118 C 68 132, 70 146, 71 156" stroke-width="3.5" opacity="0.8"></path><path d="M 124 114 C 123 124, 125 138, 126 148" stroke-width="3.5" opacity="0.8"></path></g><circle cx="100" cy="192" r="2.5" fill="#F1F8DC" opacity="0.9"></circle><circle cx="100" cy="72" r="13" fill="#FDF6EC"></circle><circle cx="100" cy="72" r="13" fill="none" stroke="#C22F6B" stroke-width="3" opacity="0.3"></circle><path class="sheen" d="M 62 46 A 44 44 0 0 1 82 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path><circle class="sheen" cx="92" cy="26" r="3.5" fill="#FFFFFF"></circle></svg>
+  <span style="display:flex;flex-direction:column;line-height:1.15"><span class="bw">glazed<span>web</span></span><span>for Sprinkles &amp; Sparkles BB</span></span>
+ </a>
+ <div class="hright">
+  <nav>
+   <a href="#found">Findings</a><a href="#own">Ownership</a><a href="#build">The site</a><a href="#shelf">The shelf</a><a href="#cost">Cost</a><a href="#next">Next</a>
+  </nav>
+  <a class="hdemo" href="/demo" target="_blank" rel="noopener">See what we built ↗</a>
+ </div>
+</div></header>
+<div class="hero" id="top"><div class="wrap">
+ <svg class="gmark mark" viewBox="0 0 200 250" overflow="visible" aria-hidden="true"><defs><linearGradient id="dgGrad" x1="0" y1="92" x2="0" y2="165" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5FA850"></stop><stop offset="100%" stop-color="#43813A"></stop></linearGradient><linearGradient id="lgGrad" x1="0" y1="92" x2="0" y2="215" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#D9EDA0"></stop><stop offset="55%" stop-color="#BFE07A"></stop><stop offset="100%" stop-color="#A3CE55"></stop></linearGradient><radialGradient id="pinkGrad" cx="40%" cy="34%" r="75%"><stop offset="0%" stop-color="#F887B2"></stop><stop offset="55%" stop-color="#E84D8A"></stop><stop offset="100%" stop-color="#CE3672"></stop></radialGradient><linearGradient id="creepGrad" x1="0" y1="90" x2="0" y2="124" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E3F2B0"></stop><stop offset="100%" stop-color="#C3E181"></stop></linearGradient></defs><g class="goo"><g fill="url(#dgGrad)"><ellipse cx="100" cy="110" rx="38" ry="15"></ellipse><path class="wobB" d="M 86 100 C 86 116, 87 130, 88 142 C 88 148, 91 149, 92 142 C 93 130, 92 114, 92 100 Z"></path><path d="M 114 100 C 114 112, 115 124, 116 134 C 116 140, 119 141, 120 134 C 121 124, 120 110, 120 100 Z"></path></g><g fill="url(#lgGrad)"><path class="wob1" d="M 64 100 C 63 120, 65 138, 66 152 C 66 164, 68 172, 74 173 C 80 172, 83 165, 82 154 C 84 136, 85 116, 86 100 Z"></path><path class="wob2" d="M 92 100 C 91 128, 93 152, 94 172 C 94 188, 97 199, 104 200 C 111 199, 114 190, 112 174 C 113 150, 114 124, 114 100 Z"></path><path class="wob3" d="M 120 100 C 119 116, 120 130, 121 142 C 121 152, 123 159, 129 160 C 134 159, 137 153, 135 144 C 136 130, 137 114, 137 100 Z"></path></g></g><path class="string" d="M 104 199 L 104 209" stroke="#BFE07A" stroke-width="2.5" stroke-linecap="round" fill="none"></path><g class="droplet"><circle cx="104" cy="213" r="7" fill="#BFE07A"></circle><circle cx="102" cy="211" r="2" fill="#F1F8DC" opacity="0.9"></circle></g><circle class="droplet2" cx="74" cy="186" r="4.5" fill="#BFE07A"></circle><circle cx="100" cy="70" r="52" fill="url(#pinkGrad)"></circle><path d="M 56 98 A 52 52 0 0 0 144 98 C 142 94, 138 92, 134 94 C 130 97, 129 102, 125 104 C 119 106, 116 98, 110 96 C 104 94, 103 102, 98 105 C 93 107, 90 100, 84 97 C 78 95, 76 100, 71 102 C 66 103, 62 100, 56 98 Z" fill="url(#creepGrad)"></path><path d="M 68 106 A 42 42 0 0 0 84 116" fill="none" stroke="#F1F8DC" stroke-width="4" stroke-linecap="round" opacity="0.85"></path><path d="M 97 144 Q 103 151 109 144" fill="none" stroke="#55974A" stroke-width="4" stroke-linecap="round"></path><g stroke="#F1F8DC" fill="none" stroke-linecap="round"><path d="M 97 128 C 96 148, 97 166, 100 182" stroke-width="4.5" opacity="0.85"></path><path d="M 69 118 C 68 132, 70 146, 71 156" stroke-width="3.5" opacity="0.8"></path><path d="M 124 114 C 123 124, 125 138, 126 148" stroke-width="3.5" opacity="0.8"></path></g><circle cx="100" cy="192" r="2.5" fill="#F1F8DC" opacity="0.9"></circle><circle cx="100" cy="72" r="13" fill="#FDF6EC"></circle><circle cx="100" cy="72" r="13" fill="none" stroke="#C22F6B" stroke-width="3" opacity="0.3"></circle><path class="sheen" d="M 62 46 A 44 44 0 0 1 82 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path><circle class="sheen" cx="92" cy="26" r="3.5" fill="#FFFFFF"></circle></svg>
+ <div class="k">Website proposal · Sprinkles &amp; Sparkles BB</div>
+ <h1>Does your website<br>sparkle?<br><em>Everything else<br>you make does.</em></h1>
+ <p class="sub">We went through sprinklessparklesbb.com page by page, and then we built the site we would put in its place. It is live right now. Everything in this letter links to the proof.</p>
+ <div class="forwho">
+  Prepared by <b>Kevin Hershock · Glazed Web</b><br>
+  Marshall, Michigan · September 2026<br>
+  <b>Every claim below links to the evidence.</b>
+ </div>
+</div></div>
+<section id="found"><div class="wrap">
+ <div class="k">Section one</div>
+ <div class="rule"></div>
+ <h2>What we found.</h2>
+
+ <div class="tldr">
+  <div class="k">The short version</div>
+  <ul>
+   <li><span class="n">01</span><span>Your website is <b>Dawn, the free theme Shopify hands every new store</b>, still on its first install. In your own words, not very sprinkle-y.</span></li>
+   <li><span class="n">02</span><span>Text the link to anyone and the preview that arrives is <b>black cursive on white</b>. Not one color makes it.</span></li>
+   <li><span class="n">03</span><span>Everyone who opens your homepage downloads <b>96 files that belong to the checkout</b>, before anything is in the bag.</span></li>
+   <li><span class="n">04</span><span>Your sugar page lists ten shades and <b>sells none of them</b>. Your workshops page has zero workshops. Your news page has zero news.</span></li>
+   <li><span class="n">05</span><span>The site <b>never says Marshall, Michigan</b>. Not on any page.</span></li>
+  </ul>
+ </div>
+
+ <p>First, what this is not. It is not about the desserts, the sugars, the tutorials or the person making them. The holographic finish is yours, six shops stock your sugar, and thousands of makers learned the method from you. <strong>The work is not the problem.</strong> What follows is about the website underneath it: how it is built, what it tells search engines, what it shows a stranger, and whose it is.</p>
+ <p>Eight measurements, taken from your live site on <strong>3 September 2026</strong>. Every one came off sprinklessparklesbb.com itself and every one can be checked against it. We also ran the same accessibility audit we run on our own work against five of your pages, and the theme passes it with one exception, the pink announcement bar. That part is fine and this letter will not pretend otherwise.</p>
+
+ <div class="claim">
+  <h4>Your website is the one Shopify gives away</h4>
+  <p>The theme is <span class="mono">Dawn</span>, version 15.2.0, Shopify's free default, and your files live at <span class="mono">/cdn/shop/t/1/</span>: theme number one, the first ever installed on this store. Dawn is a fine starting point, which is exactly the trouble. It is the starting point for an enormous number of stores, and the whole point of your brand is that nothing else looks like it. The type is Shopify's default. The layout is Shopify's default. The colors on your site are the color of the page.</p>
+  <span class="verify plain">View source on any page and search for Shopify.theme</span>
+  <a class="verify" href="https://themes.shopify.com/themes/dawn/presets/dawn" target="_blank" rel="noopener">Dawn on the theme store ↗</a>
+ </div>
+
+ <div class="claim">
+  <h4>The link card is black and white</h4>
+  <p>When somebody pastes your address into a text, Instagram or Facebook, the picture that shows up is the image your site names as its card. Yours is the logo file: black script on a white field, and it drops the BB. Nothing holographic, no sugar, no color. For a business whose entire pitch is how it looks, the first thing anyone sees of it is a signature on a blank page. The tag also points at it over plain <span class="mono">http://</span> on a site that is otherwise <span class="mono">https</span>.</p>
+  <a class="verify" href="https://sprinklessparklesbb.com/cdn/shop/files/Website_Sprinkles_Logo.png?v=1740076161" target="_blank" rel="noopener">See the card image ↗</a>
+ </div>
+
+ <div class="claim">
+  <h4>Your homepage downloads the checkout</h4>
+  <p>Open the front page and, in the background, the browser fetches <strong>96 files that belong to the payment page</strong>: 74 scripts and 22 stylesheets from Shopify's checkout, for every visitor, before anyone has put anything in the bag. The page itself carries <strong>50 script tags and 29 stylesheets</strong>. None of that is yours to switch off. It is what the platform does on every page, every time, regardless of who is typing.</p>
+  <span class="verify plain">Open your homepage with the Network tab open and filter for checkout-web</span>
+  <a class="verify" href="https://sprinklessparklesbb.com/" target="_blank" rel="noopener">Open your homepage ↗</a>
+ </div>
+
+ <div class="claim">
+  <h4>Ten shades, none for sale</h4>
+  <p>Your Sparkling Sanding Sugar page lists all ten blends, and every one of them ends in the same button: <span class="mono">Shop Sparkling Sanding Sugar Retailers</span>. There is no jar, no price and no bag on the page for the product you say you are proudest of. The same ten-shade block is pasted a second time onto the Holographic Cake Info page, underneath the Frost Form instructions, where it has nothing to do with the cake.</p>
+  <a class="verify" href="https://sprinklessparklesbb.com/pages/sparkling-sanding-sugar" target="_blank" rel="noopener">See the sugar page ↗</a>
+  <a class="verify" href="https://sprinklessparklesbb.com/pages/holographic-cake-info" target="_blank" rel="noopener">See it again on the cake page ↗</a>
+ </div>
+
+ <div class="claim">
+  <h4>Two empty rooms, both in the sitemap</h4>
+  <p><span class="mono">/collections/in-person-workshops</span> says <span class="mono">0 products. No products found.</span> You teach workshops and run pop-ups, and the page for them is a shelf with nothing on it. <span class="mono">/blogs/news</span> has a heading and no posts. Both are listed in the sitemap your store hands to Google, so Google has them too.</p>
+  <a class="verify" href="https://sprinklessparklesbb.com/collections/in-person-workshops" target="_blank" rel="noopener">See the workshops page ↗</a>
+  <a class="verify" href="https://sprinklessparklesbb.com/blogs/news" target="_blank" rel="noopener">See the news page ↗</a>
+ </div>
+
+ <div class="claim">
+  <h4>Nowhere on the site is Marshall</h4>
+  <p>We read fifteen pages. Not one of them says Marshall, or Michigan, or where the sugar ships from. The business record your store gives search engines has three facts in it, name, logo and web address, and four empty strings where links should be. The contact page is a form with no email address and no phone number on it; the email appears only in the FAQ and the refund policy. A person who wants to book you for a class, or a shop that wants to stock you, has to dig.</p>
+  <span class="verify plain">Open any page and search it for Marshall</span>
+  <a class="verify" href="https://sprinklessparklesbb.com/pages/contact" target="_blank" rel="noopener">See the contact page ↗</a>
+ </div>
+
+ <div class="claim">
+  <h4>Nine links in the menu, and one of them is a legal document</h4>
+  <p>Home, Our Retailers, Affiliate Codes, Tutorials, Sparkling Sanding Sugar, Holographic Cake Info, Contact, FAQ, Terms of Use Agreement. That is the main menu. Nothing in it says Shop. Nothing says About, and there is nothing at all for workshops. The terms of use sit in the top bar next to Home, on their own line on a laptop.</p>
+  <a class="verify" href="https://sprinklessparklesbb.com/" target="_blank" rel="noopener">See the menu ↗</a>
+ </div>
+
+ <div class="claim">
+  <h4>Things a person should not have to remember</h4>
+  <p>The bar across the top of every page says <span class="mono">Holographic Dessert Sheets Now Available!</span> The sheets were added to your store on <strong>22 March 2025</strong>, by your own product record, so they have been newly available for eighteen months. The cake pop tutorial, listed in February 2025, still wears a <span class="mono">New Product!</span> badge, names its seller as <span class="mono">MY STORE</span>, and tells buyers <span class="mono">Shipping calculated at checkout</span> for a file that downloads. Its browser title reads <span class="mono">Holographic-Cake-Pop-Tutorial</span>, hyphens included. The homepage title is just your name, and the Products, Contact and News pages have no description for Google at all. None of this is neglect. On a rented store every one of those is a box a person has to remember to go and untick.</p>
+  <a class="verify" href="https://sprinklessparklesbb.com/products/holographic-cake-pop-tutorial" target="_blank" rel="noopener">See the tutorial page ↗</a>
+  <a class="verify" href="https://sprinklessparklesbb.com/products.json" target="_blank" rel="noopener">Your store's own product record ↗</a>
+ </div>
+
+ <div class="gap">
+  <p class="big">Your desserts are the most photographed thing in this corner of the internet. Your website is the least.</p>
+  <p>Everything above is a symptom. The real finding is the gap. Open your Instagram and it is oil-slick cake pops, rainbow sugar and a finish people travel to learn. Open your website and it is a default theme, a grey hero and a form. The quality on the screen has never matched the quality on the stick. A brand this visual deserves a website built to its own standard, and closing that gap is the entire reason this letter exists.</p>
+ </div>
+
+ <p class="note">Why did the gap happen? Not neglect of the craft, plainly. A rented store that is awkward to make your own, so it stayed the way it came out of the box.</p>
+</div></section>
+<section id="own"><div class="wrap">
+ <div class="k">Section two</div>
+ <div class="rule"></div>
+ <h2>The part that matters most.</h2>
+
+ <h3>What you have now</h3>
+ <p>Your store runs on a Shopify subscription. The theme is theirs, the checkout is theirs, the hosting is theirs, and <span class="mono">Powered by Shopify</span> sits in your footer. The day you stop paying, the store closes. What you can take with you is spreadsheets: your products, your customers and your orders as files. Not a website that can be switched back on somewhere else.</p>
+ <p>None of that is improper. It is how renting works. It is worth knowing which parts apply to you.</p>
+
+ <div class="demo" style="text-align:left;background:var(--card);color:var(--body);border:2px solid var(--green)">
+  <div class="k" style="color:var(--green-d)">What we would do instead</div>
+  <h3 style="color:var(--ink);margin-top:8px">You own it. All of it.</h3>
+  <p style="color:var(--body);margin:0">When the build fee is paid, the site is yours in writing: design, source code, content, accounts. Your domain stays in your name. Month to month after launch, thirty days' notice, no penalty. If you ever leave, you take everything with you, working.</p>
+ </div>
+
+ <h3>And it looks like the work</h3>
+ <p>The first concept we showed you came back too dark, and you were right. What is live now is lighter, simpler and multicolored: confetti cake and sprinkles, sparkle as you scroll, your own photographs doing the talking. A site that could only be yours, which is the one thing a theme can never be.</p>
+
+ <h3>Three questions worth asking any platform</h3>
+ <p><strong>1.</strong> If we stop paying you, what do we keep? <strong>2.</strong> Can our store look like nothing else on your platform? <strong>3.</strong> Who do we call when something needs changing? Our answers are: everything, yes, and Kevin. Ask Shopify the same three.</p>
+</div></section>
+<section id="build"><div class="wrap">
+ <div class="k">Section three</div>
+ <div class="rule"></div>
+ <h2>What we built.</h2>
+ <p>Not what we would build. What we built, on our own time, before asking you for anything, because showing beats describing.</p>
+
+ <div class="demo demo-cta">
+  <div class="k">The demo is live right now</div>
+  <h3 style="margin-top:8px"><a href="/demo" target="_blank" rel="noopener">sprinkles.glazedweb.com/demo</a></h3>
+  <p>Open it on your phone. That is where your customers are.</p>
+ </div>
+
+ <h3>What is in it</h3>
+ <p><strong>A front page that looks like the desserts.</strong> Marshall, Michigan is the first line. The headline catches the light the way the cake pops do, confetti drifts, and the hero photograph is buried in sprinkles that clear as you scroll. Every photograph on it is yours.</p>
+ <p><strong>A shop with everything you sell today.</strong> All six products at your current prices, one bag, and a checkout hosted by Stripe, so card details never touch your website. Tutorials appear on the confirmation page the moment the payment clears and go out again by email. The download link only works for an order that paid for it.</p>
+ <p><strong>The sugar shelf.</strong> All ten shades, a page each, ready to sell straight from your own site. Section four is about that.</p>
+ <p><strong>Your retailers, kept.</strong> All six shops, with what each one carries, on the homepage and their own section.</p>
+ <p><strong>Workshops, finally on the site.</strong> A section of their own, a button that puts people on the list for dates, and one that emails you to host a class.</p>
+ <p><strong>A menu of five.</strong> Shop, Tutorials, Sanding Sugars, Workshops, About. The terms of use live in the footer where terms live.</p>
+ <p><strong>A link card in color.</strong> Paste the address anywhere and the preview is your desserts, not a signature.</p>
+
+ <h3>Built to a standard, and here is how we know</h3>
+ <p>None of this is a mockup. It is a working site, and we measured it rather than describing it.</p>
+ <ul class="proof" id="proof">
+  <li><b>It carries a third of the code.</b> 150 KB of JavaScript against 453 KB on your current homepage, measured on the same deliberately slow phone profile, because that is the phone at the craft fair. Less code is less for a weak signal to drag down.</li>
+  <li><b>It works for people who do not see well.</b> Every size and color on it was measured against the accessibility standard at four screen widths, rather than eyeballed.</li>
+  <li><b>It works with the modern parts switched off.</b> Turn off JavaScript and the shop still lists everything. Nobody gets a blank page.</li>
+  <li><b>Nothing rented on top.</b> No theme license, no app subscriptions, no per-feature upsell. The price at the end of this letter is the price.</li>
+ </ul>
+ <p class="note">Two things in the demo are stand-ins and say so. The sugar prices and the shipping rate are placeholders until you tell us the real ones, and the tutorial files are not attached yet, so a test order says "emailed to you shortly" instead of pretending.</p>
+</div></section>
+<section id="shelf"><div class="wrap">
+ <div class="k">Section four</div>
+ <div class="rule"></div>
+ <h2>The part your website is missing.</h2>
+
+ <div class="gap">
+  <p class="big">You make the sugar. Six other shops sell it. Your own site does not.</p>
+  <p>Ten blends, a photograph of each, and not one of them can be bought where they were made.</p>
+ </div>
+
+ <p><strong>What we did about it.</strong> Every shade has its own page on the demo, with a jar, a price and a bag, and it ships from Michigan. If your agreements with the six shops keep direct sales off the table, the shelf comes out and the page still looks like the product. If they do not, every jar sold from your own page is a sale nobody else takes a share of, and the customer's name and email are yours.</p>
+ <p><strong>The same goes for the workshops.</strong> Dates on your own site, a list that hears about them first, and a button for anyone who wants to host one. Today a person who wants to book you has to find an email address in the refund policy.</p>
+ <p><strong>And the list itself.</strong> A signup on the homepage, and every address it collects belongs to you, exportable any time. On a rented store the customer list is one of the things that travels badly.</p>
+</div></section>
+<section id="cost"><div class="wrap">
+ <div class="k">Section five</div>
+ <div class="rule"></div>
+ <h2>What it costs.</h2>
+
+ <div class="pricebox" id="pricecards">
+  <div><span class="was" aria-hidden="true">Shopify's own guide starts custom at <s>$1,000</s></span><div class="n">$<span class="price-num" data-from="1000" data-to="500">500</span></div><div class="l">One-time build. Everything in section three, finished, launched on sprinklessparklesbb.com, and yours. Half to start, half on launch.</div></div>
+  <div><div class="n">$50<span style="font-size:1rem;color:var(--mute)">/mo</span></div><div class="l">Hosting, SSL, security, backups, and ongoing content edits. New shade? New tutorial? Workshop dates? Send a text.</div></div>
+ </div>
+ <p>That is <strong>$1,100</strong> across the first twelve months, then <strong>$600 a year</strong>. Shopify's Basic plan is $39 a month on its own. Card fees stay exactly what they are now, 2.9% and 30 cents on each sale, paid to Stripe instead of to Shopify.</p>
+ <p>The struck figure is not ours. Shopify's own guide to what a website costs puts custom development at $1,000 to $20,000 and up. Both pages are linked so you can read them yourself.</p>
+ <a class="verify loose" href="https://www.shopify.com/blog/how-much-does-a-website-cost" target="_blank" rel="noopener">Shopify's guide to website costs ↗</a>
+ <a class="verify loose" href="https://www.shopify.com/pricing" target="_blank" rel="noopener">Shopify's pricing page ↗</a>
+ <a class="verify loose" href="https://stripe.com/pricing" target="_blank" rel="noopener">Stripe's pricing page ↗</a>
+
+ <div class="demo" style="background:var(--card);color:var(--body);border:2px solid var(--line);text-align:left;margin-top:22px">
+  <div class="k" style="color:var(--green-d)">Worth saying plainly</div>
+  <p style="color:var(--body);margin:10px 0 0;max-width:none">We are a small shop in Marshall, the same town as you, not an agency with a floor of account managers. That is why the price looks the way it does, and it is also why you get the person who built the thing on the phone when a shade sells out. If you want a platform with a help center, you already have one. If you want your website to look like your work and stay that way, <strong>we are exactly that.</strong></p>
+ </div>
+</div></section>
+<section id="next"><div class="wrap">
+ <div class="k">Section six</div>
+ <div class="rule"></div>
+ <h2>What happens next.</h2>
+
+ <div class="step"><div class="num">1</div><div><h4>Look at the demo</h4><p>Ten minutes at <a href="/demo" target="_blank" rel="noopener">sprinkles.glazedweb.com/demo</a>, on your phone. It cost you nothing and it obligates you to nothing. If it is not right, that is useful to hear too.</p></div></div>
+ <div class="step"><div class="num">2</div><div><h4>Pick a time to talk</h4><p>Half an hour, in Marshall or on a call. <a href="https://glazedweb.com/schedule" target="_blank" rel="noopener">Book it at glazedweb.com/schedule</a> and it lands in both calendars. Bring the skeptical questions.</p></div></div>
+ <div class="step"><div class="num">3</div><div><h4>Launch</h4><p>About two weeks from yes to live, most of it waiting on the things below. Your Shopify store stays up until the new one is on your domain, so there is never a day without a shop.</p></div></div>
+
+ <h3>What we would need from you</h3>
+ <p>Your Stripe login, or ten minutes to make one together. The tutorial and preset files, so the downloads are real. The price of a jar of sugar and what it costs to ship, or the word that sugar stays with the retailers. Your logo file. That is genuinely the list.</p>
+ <p class="note">The demo was built from your published store and your own photographs. Anything we got wrong, we fix before launch, which is rather the point of owning a site somebody can actually edit.</p>
+</div></section>
+<footer><div class="wrap">
+ <div>
+  <span class="bw" style="font-size:21px">glazed<span>web</span></span> Kevin Hershock · Marshall, Michigan<br>
+  <a href="https://glazedweb.com" target="_blank" rel="noopener">glazedweb.com</a> · kevin@glazedweb.com
+  <div class="conf">Prepared for Sprinkles &amp; Sparkles BB · September 2026 · Valid 60 days</div>
+ </div>
+ <svg class="gmark gl-foot" viewBox="0 0 200 250" overflow="visible" aria-hidden="true"><defs><linearGradient id="dgGrad" x1="0" y1="92" x2="0" y2="165" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5FA850"></stop><stop offset="100%" stop-color="#43813A"></stop></linearGradient><linearGradient id="lgGrad" x1="0" y1="92" x2="0" y2="215" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#D9EDA0"></stop><stop offset="55%" stop-color="#BFE07A"></stop><stop offset="100%" stop-color="#A3CE55"></stop></linearGradient><radialGradient id="pinkGrad" cx="40%" cy="34%" r="75%"><stop offset="0%" stop-color="#F887B2"></stop><stop offset="55%" stop-color="#E84D8A"></stop><stop offset="100%" stop-color="#CE3672"></stop></radialGradient><linearGradient id="creepGrad" x1="0" y1="90" x2="0" y2="124" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E3F2B0"></stop><stop offset="100%" stop-color="#C3E181"></stop></linearGradient></defs><g class="goo"><g fill="url(#dgGrad)"><ellipse cx="100" cy="110" rx="38" ry="15"></ellipse><path class="wobB" d="M 86 100 C 86 116, 87 130, 88 142 C 88 148, 91 149, 92 142 C 93 130, 92 114, 92 100 Z"></path><path d="M 114 100 C 114 112, 115 124, 116 134 C 116 140, 119 141, 120 134 C 121 124, 120 110, 120 100 Z"></path></g><g fill="url(#lgGrad)"><path class="wob1" d="M 64 100 C 63 120, 65 138, 66 152 C 66 164, 68 172, 74 173 C 80 172, 83 165, 82 154 C 84 136, 85 116, 86 100 Z"></path><path class="wob2" d="M 92 100 C 91 128, 93 152, 94 172 C 94 188, 97 199, 104 200 C 111 199, 114 190, 112 174 C 113 150, 114 124, 114 100 Z"></path><path class="wob3" d="M 120 100 C 119 116, 120 130, 121 142 C 121 152, 123 159, 129 160 C 134 159, 137 153, 135 144 C 136 130, 137 114, 137 100 Z"></path></g></g><path class="string" d="M 104 199 L 104 209" stroke="#BFE07A" stroke-width="2.5" stroke-linecap="round" fill="none"></path><g class="droplet"><circle cx="104" cy="213" r="7" fill="#BFE07A"></circle><circle cx="102" cy="211" r="2" fill="#F1F8DC" opacity="0.9"></circle></g><circle class="droplet2" cx="74" cy="186" r="4.5" fill="#BFE07A"></circle><circle cx="100" cy="70" r="52" fill="url(#pinkGrad)"></circle><path d="M 56 98 A 52 52 0 0 0 144 98 C 142 94, 138 92, 134 94 C 130 97, 129 102, 125 104 C 119 106, 116 98, 110 96 C 104 94, 103 102, 98 105 C 93 107, 90 100, 84 97 C 78 95, 76 100, 71 102 C 66 103, 62 100, 56 98 Z" fill="url(#creepGrad)"></path><path d="M 68 106 A 42 42 0 0 0 84 116" fill="none" stroke="#F1F8DC" stroke-width="4" stroke-linecap="round" opacity="0.85"></path><path d="M 97 144 Q 103 151 109 144" fill="none" stroke="#55974A" stroke-width="4" stroke-linecap="round"></path><g stroke="#F1F8DC" fill="none" stroke-linecap="round"><path d="M 97 128 C 96 148, 97 166, 100 182" stroke-width="4.5" opacity="0.85"></path><path d="M 69 118 C 68 132, 70 146, 71 156" stroke-width="3.5" opacity="0.8"></path><path d="M 124 114 C 123 124, 125 138, 126 148" stroke-width="3.5" opacity="0.8"></path></g><circle cx="100" cy="192" r="2.5" fill="#F1F8DC" opacity="0.9"></circle><circle cx="100" cy="72" r="13" fill="#201712"></circle><circle cx="100" cy="72" r="13" fill="none" stroke="#C22F6B" stroke-width="3" opacity="0.3"></circle><path class="sheen" d="M 62 46 A 44 44 0 0 1 82 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path><circle class="sheen" cx="92" cy="26" r="3.5" fill="#FFFFFF"></circle></svg>
+</div></footer>
+<script>
+/*
+  The price melt, lifted from glazedweb's components/homeEffects.js and
+  rewritten as plain JS because a proposal page has no React. One card
+  instead of three, so the left-to-right row stagger is the only thing
+  dropped. Same 1100ms, same cubic ease-out, same idle / primed / counting
+  machine keyed to how far the card has travelled up the viewport, so
+  scrolling back up re-arms it for the next pass.
+
+  The DOM already says 500. The anchor lives only in data-from and is
+  written in by this script, which is the rule: a reader with scripts
+  blocked, or on reduced motion, must never be looking at a price we are
+  not charging.
+*/
+(function(){
+ var el=document.querySelector('#pricecards .price-num');
+ if(!el) return;
+ var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if(reduced) return;
+ var card=el.closest('.pricebox > div')||el;
+ var from=parseFloat(el.dataset.from), to=parseFloat(el.dataset.to);
+ var fmt=function(v){return Math.round(v).toLocaleString('en-US');};
+ var status='idle', rafCount=0;
+ function cancelWork(){ if(rafCount) cancelAnimationFrame(rafCount); rafCount=0; }
+ function startCount(){
+  var dur=1100, start;
+  var tick=function(ts){
+   if(start===undefined) start=ts;
+   var p=Math.min(1,(ts-start)/dur);
+   var ease=1-Math.pow(1-p,3);
+   el.textContent=fmt(from+(to-from)*ease);
+   if(p<1) rafCount=requestAnimationFrame(tick); else status='done';
+  };
+  rafCount=requestAnimationFrame(tick);
+ }
+ var raf=0;
+ function update(){
+  raf=0;
+  var vh=window.innerHeight||1, r=card.getBoundingClientRect();
+  var cp=Math.min(1,Math.max(0,(vh-r.top)/(vh+r.height)));
+  if(cp>=0.45){
+   if(status==='idle'||status==='primed'){ status='counting'; startCount(); }
+  }else if(cp>=0.12&&cp<0.38){
+   if(status!=='primed'){ cancelWork(); el.textContent=fmt(from); status='primed'; }
+  }else if(cp<0.12){
+   if(status!=='idle'){ cancelWork(); el.textContent=fmt(to); status='idle'; }
+  }
+ }
+ function onScroll(){ if(!raf) raf=requestAnimationFrame(update); }
+ update();
+ window.addEventListener('scroll',onScroll,{passive:true});
+ window.addEventListener('resize',onScroll,{passive:true});
+})();
+
+/*
+  The numbered steps glaze as the section moves up the viewport, one after
+  another, thresholds [0.22, 0.38, 0.54, 0.7] from glazedweb's homepage.
+  Scroll-scrubbed, never autoplayed; recrossing a threshold re-runs that
+  number's shine. Under reduced motion the CSS turns the sweep off and the
+  class toggling is harmless.
+*/
+(function(){
+ var sec=document.getElementById('next');
+ if(!sec) return;
+ var steps=Array.prototype.slice.call(sec.querySelectorAll('.step'));
+ if(!steps.length) return;
+ var thresholds=[0.22,0.38,0.54,0.7];
+ var raf=0;
+ function update(){
+  raf=0;
+  var r=sec.getBoundingClientRect(), vh=window.innerHeight||1;
+  var p=Math.min(1,Math.max(0,(vh-r.top)/(vh+r.height)));
+  steps.forEach(function(el,i){
+   var t=thresholds[i]!==undefined?thresholds[i]:0.8;
+   if(p>=t) el.classList.add('glazed');
+   else if(p<t-0.06) el.classList.remove('glazed');
+  });
+ }
+ function onScroll(){ if(!raf) raf=requestAnimationFrame(update); }
+ update();
+ window.addEventListener('scroll',onScroll,{passive:true});
+ window.addEventListener('resize',onScroll,{passive:true});
+})();
+</script>
+</body></html>

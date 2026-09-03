@@ -32,7 +32,14 @@ export const metadata = {
     description:
       'Holographic dessert tutorials, Sparkling Sanding Sugars and workshops from Brittany Bennett.',
     type: 'website',
+    // The demo card. Hers entirely, per glaze/link-cards.md: the proposal has
+    // its own card at public/pitch/sprinkles/og.jpg. Rendered from
+    // og-cards/demo.html in the scratch tooling, 1200x630, under 1MB.
+    images: [{ url: '/og.jpg', width: 1200, height: 630, alt: 'Sprinkles & Sparkles BB' }],
   },
+  // Spec build: keep it out of the index until it lives on her domain. The
+  // matching X-Robots-Tag header is in next.config.mjs; remove both together.
+  robots: { index: false, follow: false },
 };
 
 export default function RootLayout({ children }) {

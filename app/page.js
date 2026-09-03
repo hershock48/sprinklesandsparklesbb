@@ -10,8 +10,11 @@ import { homeProducts, sugars, money } from '@/lib/catalog';
 
 // bright colors for borders and decoration
 const ACCENTS = ['#FF4E9B', '#FFC93C', '#2DC7DE', '#5FCB53', '#8B6BFF', '#FF8A3D'];
-// deeper matching colors, readable as text on white
-const INKS = ['#E8317F', '#B57C00', '#0E93A8', '#358F35', '#7B57F0', '#DC6A13'];
+// deeper matching colors, readable as text on white AND on vanilla (#FFF6EA), the
+// darkest ground they land on. Each is the original hue scaled until it measures at
+// least 4.6:1 there; the originals (#E8317F #B57C00 #0E93A8 #358F35 #7B57F0 #DC6A13)
+// ran 3.4 to 4.1 and failed axe on every card. Measured 2026-09-03.
+const INKS = ['#CE2C71', '#966700', '#0C7B8D', '#2F802F', '#7754E9', '#B3560F'];
 
 export default function Home() {
   const [featured, ...rest] = homeProducts;
@@ -109,7 +112,7 @@ export default function Home() {
         <section id="tutorials" className="relative overflow-hidden bg-frosting py-24">
           <div className="relative mx-auto max-w-page px-5">
             <Reveal className="relative mb-12 max-w-2xl">
-              <p style={{ color: '#0E93A8' }} className="eyebrow mb-4">Tutorials &amp; downloads</p>
+              <p style={{ color: '#0C7B8D' }} className="eyebrow mb-4">Tutorials &amp; downloads</p>
               <h2 className="font-display text-[clamp(32px,5vw,52px)] font-semibold leading-[1.05] tracking-tight text-ink">
                 Learn the finish everyone asks about.
               </h2>
@@ -221,7 +224,7 @@ export default function Home() {
                   { bottom: '-14%', right: '30%', size: 16, color: '#5FCB53', delay: 2.0 },
                 ]}
               />
-              <p style={{ color: '#DC6A13' }} className="eyebrow mb-4">Sparkling Sanding Sugar</p>
+              <p style={{ color: '#B3560F' }} className="eyebrow mb-4">Sparkling Sanding Sugar</p>
               <h2 className="font-display text-[clamp(32px,5vw,52px)] font-semibold leading-[1.05] tracking-tight text-ink">
                 Ten shades of <span className="holo-text">shimmer</span>
               </h2>
@@ -382,7 +385,7 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={120}>
-              <p style={{ color: '#358F35' }} className="eyebrow mb-4">The person behind it</p>
+              <p style={{ color: '#2F802F' }} className="eyebrow mb-4">The person behind it</p>
               <h2 className="font-display text-[clamp(32px,5vw,52px)] font-semibold leading-[1.05] tracking-tight text-ink">
                 Hi, I&apos;m <span className="holo-text">Brittany.</span>
               </h2>
@@ -404,9 +407,9 @@ export default function Home() {
 
               <div className="mt-9 flex flex-wrap gap-3">
                 {[
-                  { value: '15+', label: 'Years decorating', color: '#FF4E9B', ink: '#E8317F' },
-                  { value: '10', label: 'Sugar shades', color: '#2DC7DE', ink: '#0E93A8' },
-                  { value: '6', label: 'Retail stockists', color: '#8B6BFF', ink: '#7B57F0' },
+                  { value: '15+', label: 'Years decorating', color: '#FF4E9B', ink: '#CE2C71' },
+                  { value: '10', label: 'Sugar shades', color: '#2DC7DE', ink: '#0C7B8D' },
+                  { value: '6', label: 'Retail stockists', color: '#8B6BFF', ink: '#7754E9' },
                 ].map((stat) => (
                   <div
                     key={stat.label}
@@ -443,8 +446,11 @@ export default function Home() {
             <h2 className="font-display text-[clamp(28px,4.4vw,44px)] font-semibold leading-[1.08] tracking-tight text-ink">
               New shades, new tutorials, workshop dates first.
             </h2>
+            {/* There was a line here promising a free "holographic color guide" on
+                signup. No such guide exists; it was invented for the demo and
+                removed 2026-09-03. Put it back only if Brittany makes one. */}
             <p className="mx-auto mt-4 max-w-md text-muted">
-              Plus the holographic color guide, free, the moment you sign up.
+              One email when there is something new. That is the whole deal.
             </p>
             <SignupForm />
             <p className="mt-4 text-xs text-muted">No spam. Leave whenever you like.</p>

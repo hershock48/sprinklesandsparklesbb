@@ -58,6 +58,10 @@ export default function CartDrawer() {
       <aside
         aria-label="Cart"
         aria-hidden={!open}
+        // aria-hidden alone left a closed drawer full of focusable buttons, which
+        // axe flags as aria-hidden-focus on every route. inert removes them from
+        // the tab order and from assistive tech while the drawer is off screen.
+        inert={!open}
         className={`fixed right-0 top-0 z-[70] flex h-full w-full max-w-[420px] flex-col bg-frosting shadow-2xl transition-transform duration-300 ${
           open ? 'translate-x-0' : 'translate-x-full'
         }`}

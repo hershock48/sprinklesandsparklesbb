@@ -10,12 +10,19 @@ const DOTS = ['#FF4E9B', '#FFC93C', '#2DC7DE', '#5FCB53', '#8B6BFF'];
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [solid, setSolid] = useState(false);
+  // On the pitch host, / is the proposal, not the site (see the rewrites in
+  // next.config.mjs). A wordmark that links to / would throw Brittany out of
+  // her own demo and back into the sales letter, so home resolves from the
+  // hostname. Every other link is root-relative and fine, because only / is
+  // rewritten. Delete this with the rewrites once she signs or passes.
+  const [home, setHome] = useState('/');
   const { count, setOpen: setCartOpen } = useCart();
 
   useEffect(() => {
     const onScroll = () => setSolid(window.scrollY > 12);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
+    if (window.location.hostname === 'sprinkles.glazedweb.com') setHome('/demo');
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
@@ -38,7 +45,7 @@ export default function Nav() {
             control can be pushed off the right edge the way the menu button
             was. At real phone widths it never actually needs to truncate. */}
         <Link
-          href="/"
+          href={home}
           className="flex min-w-0 items-center gap-2 xs:gap-2.5"
           onClick={() => setOpen(false)}
         >

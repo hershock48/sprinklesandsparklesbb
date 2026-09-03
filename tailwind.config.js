@@ -16,17 +16,17 @@ module.exports = {
         batter: '#FFEDD6',
         shell: '#FFFFFF',
         ink: '#2E2340',
-        muted: '#7C6C8C',
+        muted: '#7A6A8A', // was #7C6C8C, 4.47:1 on vanilla, three hundredths short. Token, not element.
         line: '#F0E3D6',
 
         // the sprinkle jar
-        pink: '#FF4E9B',
+        pink: '#D41F6A', // was #FF4E9B. Text and buttons live on this token; 2.88:1 on vanilla failed axe 100+ times. #D41F6A is 4.67 as text on vanilla and 5.00 under white. Confetti and gradients keep the bright literal.
         bubble: '#FF8FC0',
         tangerine: '#FF8A3D',
         lemon: '#FFC93C',
         lime: '#5FCB53',
         aqua: '#2DC7DE',
-        grape: '#8B6BFF',
+        grape: '#755AD7', // was #8B6BFF, 3.63 as text. Used as text and borders only; the bright violet stays in ACCENTS.
       },
       fontFamily: {
         display: ['var(--font-display)', 'Trebuchet MS', 'sans-serif'],

@@ -6,7 +6,7 @@ import { useCart } from '@/components/CartProvider';
 import { money } from '@/lib/catalog';
 
 const ACCENTS = ['#FF4E9B', '#FFC93C', '#2DC7DE', '#5FCB53', '#8B6BFF', '#FF8A3D'];
-const INKS = ['#E8317F', '#B57C00', '#0E93A8', '#358F35', '#7B57F0', '#DC6A13'];
+const INKS = ['#CE2C71', '#966700', '#0C7B8D', '#2F802F', '#7754E9', '#B3560F'];
 
 export default function ProductCard({ product, index = 0 }) {
   const { add } = useCart();
