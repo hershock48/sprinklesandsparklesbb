@@ -63,10 +63,25 @@ nav a:hover{color:var(--pink-d)}
 /* The one action the header sells: the demo. Lives outside <nav> so the
    720px rule that hides the section anchors cannot take it with them. */
 .hright{display:flex;align-items:center;gap:20px}
-.hdemo{display:inline-block;background:var(--pink-d);color:#fff;font-weight:700;font-size:.72rem;letter-spacing:.09em;
+.hdemo{display:inline-flex;align-items:center;min-height:44px;background:var(--pink-d);color:#fff;font-weight:700;font-size:.72rem;letter-spacing:.09em;
  text-transform:uppercase;padding:10px 18px;border-radius:999px;text-decoration:none;white-space:nowrap;
  box-shadow:0 6px 16px -6px rgba(232,77,138,.55);transition:all .18s}
 .hdemo:hover{background:var(--green);color:var(--ink);transform:translateY(-1px)}
+/* The hero pair: one close, one look. The ghost is Launch so the pill in the
+   header is not competing with a second pill here. Lifted from the Griffin
+   Claw letter, per glaze/launch-page.md. */
+.herocta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.herocta a{display:inline-flex;align-items:center;min-height:46px;padding:0 26px;border-radius:999px;font-family:var(--sans);font-weight:700;font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;background:var(--pink-d);color:#fff;box-shadow:0 6px 16px -6px rgba(232,77,138,.55);transition:all .18s}
+.herocta a:hover{background:var(--green);color:var(--ink);transform:translateY(-2px)}
+.herocta a.ghost{background:transparent;color:var(--ink);border:2px solid var(--line);box-shadow:none}
+.herocta a.ghost:hover{background:transparent;color:var(--ink);border-color:var(--green)}
+.herocta span{flex:1 1 20em;min-width:16em;font-size:.92rem;color:var(--body)}
+/* The closing band: one pill. The agreement, the demo and Kevin stay plain
+   links underneath, because a second pill here would be a second close. */
+.demo a.big{padding:18px 44px;font-size:.92rem;margin-top:4px}
+.demo .after{color:#D8CBBA;font-size:.92rem;max-width:38em;margin:14px auto 0;line-height:1.6}
+.demo .after a{display:inline;background:none;box-shadow:none;padding:0;border-radius:0;font-family:inherit;font-size:inherit;letter-spacing:0;text-transform:none;color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.demo .after a:hover{background:none;color:var(--green);transform:none}
 @media(max-width:720px){nav{display:none}.brand .bw~span{display:none}}
 @media(max-width:400px){.hdemo{font-size:.66rem;padding:9px 13px;letter-spacing:.06em}}
 
@@ -265,7 +280,7 @@ footer .gmark{height:78px;width:auto}
   <nav>
    <a href="#found">Findings</a><a href="#own">Ownership</a><a href="#build">The site</a><a href="#shelf">The shelf</a><a href="#cost">Cost</a><a href="#next">Next</a>
   </nav>
-  <a class="hdemo" href="/demo" target="_blank" rel="noopener">See what we built ↗</a>
+  <a class="hdemo" href="https://www.glazedweb.com/build/sprinkles" target="_blank" rel="noopener">Launch ↗</a>
  </div>
 </div></header>
 <div class="hero" id="top"><div class="wrap">
@@ -273,6 +288,11 @@ footer .gmark{height:78px;width:auto}
  <div class="k">Website proposal · Sprinkles &amp; Sparkles BB</div>
  <h1>Does your website<br>sparkle?<br><em>Everything else<br>you make does.</em></h1>
  <p class="sub">We went through sprinklessparklesbb.com page by page, and then we built the site we would put in its place. It is live right now. Everything in this letter links to the proof.</p>
+ <p class="herocta">
+  <a href="/demo" target="_blank" rel="noopener">See what we built ↗</a>
+  <a class="ghost" href="https://www.glazedweb.com/build/sprinkles" target="_blank" rel="noopener">Launch ↗</a>
+  <span>The site is built already, with your products, your prices and your photographs in it. Launch opens the page that comes after yes.</span>
+ </p>
  <div class="forwho">
   Prepared by <b>Kevin Hershock · Glazed Web</b><br>
   Marshall, Michigan · September 2026<br>
@@ -450,13 +470,24 @@ footer .gmark{height:78px;width:auto}
  <div class="rule"></div>
  <h2>What happens next.</h2>
 
- <div class="step"><div class="num">1</div><div><h4>Look at the demo</h4><p>Ten minutes at <a href="/demo" target="_blank" rel="noopener">sprinkles.glazedweb.com/demo</a>, on your phone. It cost you nothing and it obligates you to nothing. If it is not right, that is useful to hear too.</p></div></div>
- <div class="step"><div class="num">2</div><div><h4>Pick a time to talk</h4><p>Half an hour, in Marshall or on a call. <a href="https://glazedweb.com/schedule" target="_blank" rel="noopener">Book it at glazedweb.com/schedule</a> and it lands in both calendars. Bring the skeptical questions.</p></div></div>
- <div class="step"><div class="num">3</div><div><h4>Launch</h4><p>About two weeks from yes to live, most of it waiting on the things below. Your Shopify store stays up until the new one is on your domain, so there is never a day without a shop.</p></div></div>
+ <div class="step"><div class="num">1</div><div><h4>Launch</h4><p>Everything from here lives on one page, yours: <a href="https://www.glazedweb.com/build/sprinkles" target="_blank" rel="noopener">glazedweb.com/build/sprinkles</a>. Where things stand, the eight things only you can supply with the reason for each, what happens in what order, and where your stuff is. We keep it current as things land, so nobody has to text anybody to ask where a thing got to.</p></div></div>
+ <div class="step"><div class="num">2</div><div><h4>Look at the demo</h4><p>Ten minutes at <a href="/demo" target="_blank" rel="noopener">sprinkles.glazedweb.com/demo</a>, on your phone. It cost you nothing and it obligates you to nothing. If it is not right, that is useful to hear too.</p></div></div>
+ <div class="step"><div class="num">3</div><div><h4>Pick a time to talk</h4><p>Half an hour, in Marshall or on a call. <a href="https://glazedweb.com/schedule" target="_blank" rel="noopener">Book it at glazedweb.com/schedule</a> and it lands in both calendars. Bring the skeptical questions.</p></div></div>
+ <div class="step"><div class="num">4</div><div><h4>Live</h4><p>About two weeks from yes, most of it waiting on the list on your build page. Your Shopify store stays up until the new one is on your domain, so there is never a day without a shop.</p></div></div>
 
  <h3>What we would need from you</h3>
- <p>Your Stripe login, or ten minutes to make one together. The tutorial and preset files, so the downloads are real. The price of a jar of sugar and what it costs to ship, or the word that sugar stays with the retailers. Your logo file. That is genuinely the list.</p>
+ <p>Eight things, none of them long, and every one is on your build page with the reason it is needed, in the order they block other work. Your name comes first, because the agreement waits on it and nothing else does. Your Stripe account and the five files people buy are the two that decide whether the shop works on day one, and the sugar question is the one only you can answer. The list lives there rather than here on purpose: one copy, ticked off as things arrive, so we are never working from a different idea of what is outstanding.</p>
  <p class="note">The demo was built from your published store and your own photographs. Anything we got wrong, we fix before launch, which is rather the point of owning a site somebody can actually edit.</p>
+
+ <div class="demo">
+  <div class="k">The one thing to do</div>
+  <h3>Everything from here is on one page.</h3>
+  <p>Where things stand, what we need from you, what happens in what order, and where your stuff is.</p>
+  <a class="big" href="https://www.glazedweb.com/build/sprinkles" target="_blank" rel="noopener">Launch ↗</a>
+  <p class="after"><a href="https://www.glazedweb.com/agreement/sprinkles" target="_blank" rel="noopener">Ready to say yes? The agreement is digital and short enough to read</a>: the same plain-English terms every client gets, with your scope, your numbers and the clauses about your Stripe account and your downloads in an Exhibit A of your own.</p>
+  <p class="after">Not yet? <a href="/demo" target="_blank" rel="noopener">Open the site</a> one more time, or <a href="https://glazedweb.com/schedule" target="_blank" rel="noopener">pick a half hour</a> and we will walk it with you.</p>
+  <p class="after">Or <a href="mailto:kevin@glazedweb.com?subject=Sprinkles%20%26%20Sparkles%20website%20proposal">email Kevin</a>. Glazed Web is one person in Marshall, Michigan, the same town as you. You would be working with him start to finish.</p>
+ </div>
 </div></section>
 <footer><div class="wrap">
  <div>

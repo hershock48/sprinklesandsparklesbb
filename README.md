@@ -19,6 +19,10 @@ spelling alone.
   attached to the Vercel project.
 - Price in the proposal: **$500 build, $50 a month.** Kevin's number, 2026-09-03,
   an old friend-price pitch that predates the menu, same bracket as Chism.
+- The letter closes on **Launch**, which opens glazedweb.com/build/sprinkles;
+  the agreement is glazedweb.com/agreement/sprinkles. Both read from the
+  `sprinkles` row in `glazedweb/lib/customOrders.js`, per `glaze/launch-page.md`.
+  Numbers and scope live there, not here.
 - Not yet shown to Brittany.
 
 ## Run it
