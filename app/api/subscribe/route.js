@@ -42,6 +42,15 @@ export async function POST(req) {
       }),
     });
     if (!res.ok) throw new Error(await res.text());
+    // A 2xx is not an acceptance. Resend answers an accepted message with a
+    // body carrying an id, and that id is the only evidence it took the
+    // signup. A 2xx with any other body, which is what a changed API surface
+    // or a proxy in front of the call looks like, queued nothing, and the
+    // person would be told they are on a list nobody was told about.
+    const accepted = await res.json().catch(() => null);
+    if (!accepted || typeof accepted.id !== 'string' || !accepted.id) {
+      throw new Error(`Resend ${res.status} with no acceptance id`);
+    }
   } catch (err) {
     console.error('[subscribe]', err?.message);
     return NextResponse.json({ error: 'Could not sign you up right now.' }, { status: 500 });
